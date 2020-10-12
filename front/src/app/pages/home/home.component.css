@@ -1,0 +1,19 @@
+
+
+div{
+    text-align: center;
+}
+
+.left
+{
+    float:left;
+    width:50%;
+    height:100%;
+}
+.right
+{
+    float:right;
+    width:50%;
+    height:100%;
+
+}

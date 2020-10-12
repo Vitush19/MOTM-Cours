@@ -1,1 +1,13 @@
-<p>home works!</p>
+<div class="left">
+    <h1>Current month</h1>
+    <h2>Note du mois d'octobre : 4,5</h2>
+    <div  *ngFor="let motm of motms">
+        <h3>Rate : {{motm.rate}} </h3>
+        <h3>Title : {{motm.title}} </h3>
+        <p>Message : {{motm.message}} </p>
+    </div>
+</div>
+
+<div class="right">
+    <h1>Previous Months</h1>
+</div>
