@@ -4,8 +4,8 @@ import { Mail } from '../mail';
 
 @Component({
   selector: 'app-mail-template',
-  templateUrl: './mail.template.component.html',
-  styleUrls: ['./mail.template.component.css']
+  templateUrl: './mail-template.component.html',
+  styleUrls: ['./mail-template.component.css']
 })
 export class MailTemplateComponent implements OnInit {
 

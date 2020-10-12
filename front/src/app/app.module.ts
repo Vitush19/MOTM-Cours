@@ -8,10 +8,6 @@ import { AddUserComponent } from './pages/add-user/add-user.component';
 import { HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { MailTemplateComponent } from './mail-template/mail-template.component';
-
-import {MatButtonModule} from '@angular/material/button';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
 import { TemplateComponent } from './template/template.component';
 
 @NgModule({
@@ -26,10 +22,7 @@ import { TemplateComponent } from './template/template.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
