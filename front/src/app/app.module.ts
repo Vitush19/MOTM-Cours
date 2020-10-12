@@ -7,18 +7,29 @@ import { ListUsersComponent } from './pages/list-users/list-users.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { MailTemplateComponent } from './mail-template/mail-template.component';
+
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { TemplateComponent } from './template/template.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListUsersComponent,
-    AddUserComponent
+    AddUserComponent,
+    MailTemplateComponent,
+    TemplateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
