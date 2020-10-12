@@ -23,6 +23,7 @@ export class AddUserComponent implements OnInit {
       firstName: ngForm.form.value.firstName,
       lastName: ngForm.form.value.lastName,
       age: ngForm.form.value.age,
+      email: ngForm.form.value.email,
     });
 
     this.userService.addUser(user).subscribe(user => console.log(user));
