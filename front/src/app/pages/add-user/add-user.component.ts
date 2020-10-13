@@ -14,6 +14,7 @@ export class AddUserComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
+
   }
 
   onSubmit(ngForm: NgForm) {
@@ -28,6 +29,6 @@ export class AddUserComponent implements OnInit {
 
     this.userService.addUser(user).subscribe(user => console.log(user));
 
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/user');
   }
 }
