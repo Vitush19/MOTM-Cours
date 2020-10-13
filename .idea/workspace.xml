@@ -20,9 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="642ee202-7ba1-468f-a888-ced7772df677" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/front/src/app/models/mock-motms.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/models/motm.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/models/mock-motms.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/models/mock-motms.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/models/motm.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/models/motm.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/pages/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/pages/home/home.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/pages/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/pages/home/home.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/pages/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/pages/home/home.component.ts" afterDir="false" />
@@ -70,19 +71,6 @@
       <recent name="C:\Users\hugol\Desktop\EPF\5A_MIN\Java\MOTM-Cours\front\src\app\models" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -91,7 +79,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602490976050</updated>
-      <workItem from="1602490977839" duration="12130000" />
+      <workItem from="1602490977839" duration="27056000" />
+      <workItem from="1602591704885" duration="10216000" />
     </task>
     <task id="LOCAL-00001" summary="add navbar">
       <created>1602508081906</created>
@@ -100,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602508081906</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="list des commentaires du mois en cours">
+      <created>1602515861149</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602515861149</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,10 +112,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="add navbar" />
+    <MESSAGE value="list des commentaires du mois en cours" />
+    <option name="LAST_COMMIT_MESSAGE" value="list des commentaires du mois en cours" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602514751049">
@@ -131,10 +129,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602508184164" />
-    <state x="823" y="405" width="348" height="298" key="org.angular.cli.generate" timestamp="1602512631356">
+    <state x="823" y="405" width="348" height="298" key="org.angular.cli.generate" timestamp="1602576810009">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="823" y="405" width="348" height="298" key="org.angular.cli.generate/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602512631356" />
-    <state x="823" y="405" width="348" height="298" key="org.angular.cli.generate/0.0.1920.1040@0.0.1920.1040" timestamp="1602507920335" />
+    <state x="823" y="405" width="348" height="298" key="org.angular.cli.generate/0.0.1920.1040@0.0.1920.1040" timestamp="1602576810009" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602581944280">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602581944280" />
   </component>
 </project>

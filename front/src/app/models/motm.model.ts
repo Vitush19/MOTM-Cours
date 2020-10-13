@@ -5,7 +5,7 @@ export class Motm {
   rate: number;
   title: string;
   message: string;
-  date: string;
+  date = new Date();
 
   constructor(motm?: Partial<Motm>) {
     defaultsDeep(this, motm);
