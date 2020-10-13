@@ -10,8 +10,8 @@
       <th scope="col">#</th>
       <th scope="col">FirstName</th>
       <th scope="col">LastName</th>
-      <th scope="col">Age</th>
       <th scope="col">Email</th>
+      <th scope="col">Age</th>
       <th scope="col"></th>
     </tr>
     </thead>
@@ -20,23 +20,12 @@
       <td>{{user.id}}</td>
       <td>{{user.firstName}}</td>
       <td>{{user.lastName}}</td>
-      <td>{{user.age}}</td>
       <td>{{user.email}}</td>
+      <td>{{user.age}}</td>
       <td>
         <button type="button" class="btn btn-danger deleteButton" (click)="deleteUser(user.id)">Delete</button>
         <<button type="button" class="btn btn-danger editButton"  (click)="editUser(user)" >Edit</button>
-      </td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>r</td>
-      <td>r</td>
-      <td>r</td>
-      <td>t</td>
-      <td>
-        <button type="button" class="btn btn-danger deleteButton" (click)="deleteUser(user.id)">Delete</button>
-<!--        <button type="button" class="btn btn-success editButton" >Edit</button>-->
-        <a class="btn btn-success" routerLink="/add-user">Edit</a>
+<!--        <a class="btn btn-success" routerLink="/add-user">Edit</a>-->
       </td>
     </tr>
     </tbody>

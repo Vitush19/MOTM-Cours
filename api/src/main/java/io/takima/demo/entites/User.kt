@@ -8,9 +8,9 @@ import javax.persistence.*
 data class User (
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id var id: Long?,
-    @Column(name = "prenom") var prenom: String?,
-    @Column(name = "nom") var nom: String?,
+    @Column(name = "first_name") var firstName: String?,
+    @Column(name = "last_name") var lastName: String?,
     @Column(name = "email") var email: String?,
-    @Column(name = "date_naissance")  var dateNaissance: Date?) {
+    @Column(name = "age")  var age: Date?) {
         constructor() : this(null, null, null, null, null)
 }
