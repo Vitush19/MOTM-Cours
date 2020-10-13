@@ -1,1 +1,12 @@
-<p>template works!</p>
+<h1>Template du Mood Of The Month</h1>
+<div>
+  <label> {{ mail.msgNote }}
+    <input [(ngModel)]="mail.msgNote" placeholder="Changez votre texte"/>
+  </label>
+</div>
+<div>
+  <label> {{ mail.titre }} 
+    <input [(ngModel)]="mail.titre" placeholder="changez votre texte"/>
+  </label>
+</div>
+<button>Modifier</button>

@@ -10,6 +10,7 @@ import { Mail } from '../mail';
 export class MailTemplateComponent implements OnInit {
 
   mail: Mail = {
+    msgNote: "Donnez votre note du mois :",
     note: 5,
     titre: "Comment allez-vous ?",
     commentaire: "Ca se passe."
