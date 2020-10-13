@@ -1,12 +1,21 @@
-<h1>Template du Mood Of The Month</h1>
-<div>
-  <label> {{ mail.msgNote }}
-    <input [(ngModel)]="mail.msgNote" placeholder="Changez votre texte"/>
-  </label>
+<div class="container">
+
+  <h1>Template du Mood Of The Month</h1>
+  <div>
+    <label> {{ template[0].msgNote }}
+      <div class="input-group mb-3">
+        <input [(ngModel)]="template[0].msgNote" class="form-control"/>
+      </div>
+      
+    </label>
+  </div>
+  <div>
+    <label> {{ template[0].title }} 
+      <div class="input-group mb-3">
+        <input [(ngModel)]="template[0].title" class="form-control"/>
+      </div>
+      <small class="form-text text-muted">Vous devez remplir les deux champs.</small>
+    </label>
+  </div>
+  <button class="btn btn-primary">Modifier</button>
 </div>
-<div>
-  <label> {{ mail.titre }} 
-    <input [(ngModel)]="mail.titre" placeholder="changez votre texte"/>
-  </label>
-</div>
-<button>Modifier</button>
