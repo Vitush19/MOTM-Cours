@@ -31,4 +31,19 @@ export class AddUserComponent implements OnInit {
 
     this.router.navigateByUrl('/user');
   }
+
+  // onEdit(ngForm: NgForm) {
+  //   console.log(ngForm);
+  //   const user = defaultsDeep({
+  //     id: user.id,
+  //     firstName: ngForm.form.value.firstName,
+  //     lastName: ngForm.form.value.lastName,
+  //     email: ngForm.form.value.email,
+  //     age: ngForm.form.value.age,
+  //   });
+  //
+  //   this.userService.editUser(user).subscribe(user => console.log(user));
+  //
+  //   this.router.navigateByUrl('/user');
+  // }
 }
