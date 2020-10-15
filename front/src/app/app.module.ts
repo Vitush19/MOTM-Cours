@@ -9,6 +9,7 @@ import { HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { TemplateComponent } from './pages/template/template.component';
+import { MailTemplateComponent } from './mail-template/mail-template.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { TemplateComponent } from './pages/template/template.component';
     ListUsersComponent,
     AddUserComponent,
     HomeComponent,
+    MailTemplateComponent,
     TemplateComponent
   ],
   imports: [

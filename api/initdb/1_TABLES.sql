@@ -7,3 +7,12 @@ create table users
     last_name TEXT not null,
     age int null
 );
+
+create table templates
+(
+    id bigint auto_increment,
+    constraint templates_ok
+        primary key (id),
+    msg_note TEXT not null,
+    title TEXT not null
+);
