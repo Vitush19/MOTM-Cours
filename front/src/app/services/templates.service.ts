@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Template } from '../models/template.model';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { timeout } from 'rxjs/operators';
 
@@ -11,6 +11,9 @@ import { timeout } from 'rxjs/operators';
 export class TemplatesService {
 
   private url: string;
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   constructor(private http: HttpClient) {
     this.url = environment.url;
@@ -26,6 +29,11 @@ export class TemplatesService {
 
   deleteTemplate(id: number): Observable<any> {
     return this.http.delete(`${this.url}/templates/${id}`).pipe(timeout(10000));
+  }
+
+  updateTemplate(template: Template): Observable<any> {
+    console.log("i got updateTemplate");
+    return this.http.put<any>(`${this.url}/templates`, template).pipe(timeout(10000));
   }
 
 }

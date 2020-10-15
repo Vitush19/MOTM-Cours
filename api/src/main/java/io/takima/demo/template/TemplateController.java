@@ -36,4 +36,11 @@ public class TemplateController {
         this.templateDAO.deleteById(id);
     }
 
+    @PutMapping()
+    public Template updateTemplate(@RequestBody Template template) {
+        if(this.templateDAO.existsById(template.getId())){
+            return this.templateDAO.save(template);
+        }
+        return null;
+    }
 }

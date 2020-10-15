@@ -9,5 +9,5 @@ INSERT INTO defaultdb.users (id, first_name, last_name, age) VALUES (8, 'Gisèle
 INSERT INTO defaultdb.users (id, first_name, last_name, age) VALUES (9, 'Thomas', 'Ouaque', null);
 INSERT INTO defaultdb.users (id, first_name, last_name, age) VALUES (10, 'Sacha', 'Telfrize', 23);
 
-INSERT INTO defaultdb.templates (id, msg_note, title) VALUES (1, 'Donnez votre note du mois :', 'Comment allez-vous ?');
+INSERT INTO defaultdb.templates (id, msg_note, title) VALUES (1, 'Donnez votre note du mois :', 'Comment allez-vous ? ICI');
 
