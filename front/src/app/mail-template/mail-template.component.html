@@ -1,16 +1,15 @@
 <div class="container ">
-  <form>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <h1>Mood Of The Month</h1>
     <div class="form-group">
-      <label for="msgNote">{{ mail.msgNote }}</label>
-      <input type="text" class="form-control"  id="msgNote" aria-describedby="msgNoteHelp">
-      <small id="msgNoteHelp" class="form-text text-muted">Vous devez remplir ce champ.</small>
+      <label for="note">{{ template[0].msgNote }}</label>
+      <input required type="text" class="form-control"  id="note">
     </div>
     <div class="form-group">
-      <label for="title">{{ mail.titre }} </label>
-      <input type="text" class="form-control" id="title" aria-describedby="titleHelp">
-      <small id="titleHelp" class="form-text text-muted">Vous devez remplir ce champ.</small>
+      <label for="comment">{{ template[0].title }} </label>
+      <input required type="text" class="form-control" id="comment">
     </div>
     <button type="submit" class="btn btn-primary">Envoyer</button>
+    <small id="titleHelp" class="form-text text-muted" *ngIf="f.invalid">Veuillez remplir tous les champs.</small>
   </form>
 </div>

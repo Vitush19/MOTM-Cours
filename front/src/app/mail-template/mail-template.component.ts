@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { TimeoutError } from 'rxjs';
 import { Mail } from '../mail';
+import { Template } from '../models/template.model';
+import { TemplatesService } from '../services/templates.service';
+import {NgForm} from '@angular/forms';
+import { defaultsDeep } from 'lodash';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-mail-template',
@@ -9,15 +13,29 @@ import { Mail } from '../mail';
 })
 export class MailTemplateComponent implements OnInit {
 
-  mail: Mail = {
-    msgNote: "Donnez votre note du mois :",
-    note: 5,
-    titre: "Comment allez-vous ?",
-    commentaire: "Ca se passe."
-  }
-  constructor() { }
+  template: Template[];
+
+  constructor(private templateService: TemplatesService, private router: Router) { }
 
   ngOnInit(): void {
+    this.templateService.getTemplate().subscribe(template => this.template = template)
   }
 
+  onSubmit(ngForm: NgForm) {
+    //console.log(ngForm);
+    if(ngForm.valid) {
+      let temp = defaultsDeep({
+        id: 1,
+        note: ngForm.form.value.note,
+        comment: ngForm.form.value.comment
+      });
+      
+      //create a addMailResult function to retrieve the data from the user
+
+      // this.templateService.updateTemplate(temp)
+      //   .subscribe();
+  
+      this.router.navigateByUrl('/templates');
+    }
+  }
 }

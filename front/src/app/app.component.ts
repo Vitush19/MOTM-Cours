@@ -18,4 +18,8 @@ export class AppComponent {
       .pipe(map((event:RoutesRecognized) => event.state.root.firstChild.data['navbar']))
       .subscribe(navbar => this.test = navbar);
   }
+
+  goHome() {
+    this.router.navigateByUrl('/');
+  }
 }
