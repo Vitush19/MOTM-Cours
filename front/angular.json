@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "epf-live-coding"
+    }
+  },
+  "defaultProject": "epf-live-coding",
+  "cli": {
+    "analytics": "0e208648-fbcc-4809-9a5e-bc707f4ed1db"
+  }
 }
