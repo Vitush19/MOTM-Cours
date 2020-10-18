@@ -23,9 +23,4 @@ export class ListUsersComponent implements OnInit {
       this.users = this.users.filter(user => user.id !== id)
     });
   }
-
-  editUser(user: User){
-    console.log('aaaaa');
-    this.router.navigateByUrl('/add-user');
-  }
 }
