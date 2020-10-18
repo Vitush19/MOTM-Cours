@@ -19,10 +19,12 @@ export class MailTemplateComponent implements OnInit {
 
   ngOnInit(): void {
     this.templateService.getTemplate().subscribe(template => this.template = template)
+    /*
+      retrieve user info to bind to the mail
+    */ 
   }
 
   onSubmit(ngForm: NgForm) {
-    //console.log(ngForm);
     if(ngForm.valid) {
       let temp = defaultsDeep({
         id: 1,

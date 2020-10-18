@@ -1,6 +1,4 @@
 package io.takima.demo.template;
-
-import io.takima.demo.template.Template;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -10,7 +8,6 @@ import java.util.List;
 @RequestMapping("/templates")
 @CrossOrigin
 public class TemplateController {
-
     private final TemplateDAO templateDAO;
 
     public TemplateController(TemplateDAO templateDAO) {
