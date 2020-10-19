@@ -27,6 +27,7 @@
           <input required type="email" id="email" class="form-control" name="email" ngModel>
         </div>
         <button class="btn btn-primary" type="submit">Ajouter</button>
+        <small id="help" class="form-text text-muted" *ngIf="f.invalid">Veuillez remplir tous les champs.</small>
       </form>
     </div>
   </div>

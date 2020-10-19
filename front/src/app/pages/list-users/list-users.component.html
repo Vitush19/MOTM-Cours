@@ -21,7 +21,7 @@
       <td>{{user.firstName}}</td>
       <td>{{user.lastName}}</td>
       <td>{{user.email}}</td>
-      <td>{{user.age}}</td>
+      <td>{{user.age | date:'longDate'}}</td>
       <td>
         <button type="button" class="btn btn-danger deleteButton" (click)="deleteUser(user.id)">Delete</button>
         <a class="btn btn-success editButton" routerLink="/edit-user/{{user.id}}" >Edit</a>
