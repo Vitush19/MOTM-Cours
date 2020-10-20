@@ -1,11 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="642ee202-7ba1-468f-a888-ced7772df677" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/front/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/api/demo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/initdb/1_TABLES.sql" beforeDir="false" afterPath="$PROJECT_DIR$/api/initdb/1_TABLES.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/initdb/2_DEFAULT_ENTRIES.sql" beforeDir="false" afterPath="$PROJECT_DIR$/api/initdb/2_DEFAULT_ENTRIES.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/io/takima/demo/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/io/takima/demo/User.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/io/takima/demo/mail/Mail.kt" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/io/takima/demo/mail/Mail.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/io/takima/demo/mail/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/io/takima/demo/mail/MailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/io/takima/demo/mail/MailDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/io/takima/demo/mail/MailDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/pages/template/template.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/pages/template/template.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +47,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="D:\Appli\IntelliJ IDEA 2020.2.2\plugins\maven\lib\maven3" />
+        <option name="mavenHome" value="D:\Software\IntelliJ IDEA 2020.2.3\plugins\maven\lib\maven3" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -28,7 +57,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mariadb" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -38,18 +73,45 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Users\hugol\Desktop\EPF\5A_MIN\Java\MOTM-Cours\front\node_modules\typescript\lib" />
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="1_TABLES.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/api/initdb/1_TABLES.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="b9da09d2-fa5f-44e9-b22e-1745471e340d" namespace="schema/&quot;defaultdb&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="2_DEFAULT_ENTRIES.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/api/initdb/2_DEFAULT_ENTRIES.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="b9da09d2-fa5f-44e9-b22e-1745471e340d" namespace="schema/&quot;defaultdb&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="io.takima.demo.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Database Script.2_DEFAULT_ENTRIES.sql" />
+        <item itemvalue="Database Script.1_TABLES.sql" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -60,10 +122,70 @@
       <option name="presentableId" value="Default" />
       <updated>1602490976050</updated>
       <workItem from="1602490977839" duration="4649000" />
+      <workItem from="1603112701771" duration="295000" />
+      <workItem from="1603113300314" duration="6051000" />
+      <workItem from="1603177426569" duration="4939000" />
+      <workItem from="1603184599972" duration="964000" />
+      <workItem from="1603193514930" duration="3887000" />
+      <workItem from="1603198303990" duration="1585000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603113414457">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1603113414457" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1603199302201">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603199302201" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1603199302199">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603199302199" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1603199302199">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603199302199" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1603199302200">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603199302200" />
+    <state width="1493" height="210" key="GridCell.Tab.1.bottom" timestamp="1603199302204">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603199302204" />
+    <state width="1493" height="210" key="GridCell.Tab.1.center" timestamp="1603199302203">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1603199302203" />
+    <state width="1493" height="210" key="GridCell.Tab.1.left" timestamp="1603199302202">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1603199302202" />
+    <state width="1493" height="210" key="GridCell.Tab.1.right" timestamp="1603199302203">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1603199302203" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1603113617027">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1603113617027" />
   </component>
 </project>

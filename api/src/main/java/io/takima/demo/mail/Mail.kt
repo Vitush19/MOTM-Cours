@@ -1,6 +1,7 @@
 package io.takima.demo.mail
 
 import io.takima.demo.User
+import java.util.*
 import javax.persistence.*
 
 /**
@@ -13,10 +14,10 @@ data class Mail(
         @Id var id: Long?,
         @Column(name = "note") var note: Int?,
         @Column(name = "comment") var comment: String?,
-        @ManyToOne(optional = false, fetch = FetchType.LAZY)
-        @JoinColumn(name = "user")
-        var user: User
-        ) {
-    constructor() : this(null, null, null, User()) //
-
+        @Column(name = "age")  var age: Date?)
+{
+    constructor() : this(null, null, null, null)
 }
+//        @ManyToOne(optional = false, fetch = FetchType.LAZY)
+//        @JoinColumn(name = "user")
+//        var user: User

@@ -24,6 +24,5 @@ create table mails
         primary key (id),
     note int not null,
     comment TEXT not null,
-    user_id bigint not null,
-        constraint mails_fk foreign key (user_id) references users (id)
+    age DATE null
 );

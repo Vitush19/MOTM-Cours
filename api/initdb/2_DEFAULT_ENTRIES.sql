@@ -11,5 +11,5 @@ INSERT INTO defaultdb.users (id, first_name, last_name, age) VALUES (10, 'Sacha'
 
 INSERT INTO defaultdb.templates (id, msg_note, title) VALUES (1, 'Donnez votre note du mois :', 'Comment allez-vous ? ICI');
 
-INSERT INTO defaultdb.mails (id, note, comment, user_id) VALUES (1, 5, 'Ca va bien !', 1);
-INSERT INTO defaultdb.mails (id, note, comment, user_id) VALUES (2, 4, 'Ca va bien mon gars!', 3);
+INSERT INTO defaultdb.mails (id, note, comment, age) VALUES (11, 5, 'Ca va bien !', null);
+INSERT INTO defaultdb.mails (id, note, comment, age) VALUES (21, 4, 'Ca va bien mon gars!', null);
