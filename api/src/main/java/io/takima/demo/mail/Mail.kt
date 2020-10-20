@@ -1,0 +1,23 @@
+package io.takima.demo.mail
+
+import io.takima.demo.User
+import java.util.*
+import javax.persistence.*
+
+/**
+ *
+ */
+@Entity(name = "mails")
+
+data class Mail(
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Id var id: Long?,
+        @Column(name = "note") var note: Int?,
+        @Column(name = "comment") var comment: String?,
+        @Column(name = "age")  var age: Date?)
+{
+    constructor() : this(null, null, null, null)
+}
+//        @ManyToOne(optional = false, fetch = FetchType.LAZY)
+//        @JoinColumn(name = "user")
+//        var user: User

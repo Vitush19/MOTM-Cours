@@ -10,6 +10,7 @@ import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { TemplateComponent } from './pages/template/template.component';
 import { MonthDetailsComponent } from './pages/home/month-details/month-details.component';
+import { MailTemplateComponent } from './mail-template/mail-template.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MonthDetailsComponent } from './pages/home/month-details/month-details.
     AddUserComponent,
     HomeComponent,
     TemplateComponent,
-    MonthDetailsComponent
+    MonthDetailsComponent,
+    MailTemplateComponent
   ],
   imports: [
     BrowserModule,
