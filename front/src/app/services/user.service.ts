@@ -29,4 +29,8 @@ export class UserService {
     return this.http.delete(`${this.url}/users/${id}`).pipe(timeout(10000));
   }
 
+  editUser(user: User): Observable<User> {
+    return this.http.put<any>(`${this.url}/users`, user).pipe(timeout(10000));
+  }
+
 }

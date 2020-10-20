@@ -4,7 +4,8 @@ export class User {
   id: number;
   firstName: string;
   lastName: string;
-  age: number;
+  email: string;
+  age = new Date();
 
   constructor(user?: Partial<User>) {
     defaultsDeep(this, user);
