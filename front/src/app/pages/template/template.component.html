@@ -1,25 +1,42 @@
-<div class="container">
-  <div class="row">
-    <h1>Template du Mood Of The Month</h1>
-    <div class="col-sm-8 col-sm-offset-2">
-      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-        <div class="form-group">
-          <h5>Titre :</h5>
-          <label for="msgNote">
-            {{ template[0].msgNote }}
-          </label>
-          <input required type="text" id="msgNote" class="form-control" name="msgNote" ngModel>
-        </div>
-        <div class="form-group">
-          <h5>Message du MOTM :</h5>
-          <label for="title">
-            {{ template[0].title }} 
-          </label>
-          <input required type="text" id="title" class="form-control" name="title" ngModel>
-        </div>
-        <button class="btn btn-primary" type="submit">Modifier</button>
-        <small id="titleHelp" class="form-text text-muted" *ngIf="f.invalid">Veuillez remplir tous les champs.</small>
-      </form>
+<div [hidden]="submitted">
+  <div class="container">
+    <div class="row">
+      <h1>Template du Mood Of The Month</h1>
+      <div class="col-sm-8 col-sm-offset-2">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <div class="form-group">
+            <h5>Titre :</h5>
+            <label for="msgNote">
+              {{ template[0].msgNote }}
+            </label>
+            <input required type="text" id="msgNote" class="form-control" name="msgNote" ngModel>
+          </div>
+          <div class="form-group">
+            <h5>Message du MOTM :</h5>
+            <label for="title">
+              {{ template[0].title }} 
+            </label>
+            <input required type="text" id="title" class="form-control" name="title" ngModel>
+          </div>
+          <button class="btn btn-success" type="submit" [disabled]="!f.form.valid" >Modifier</button>
+          <small id="titleHelp" class="form-text text-muted" *ngIf="f.invalid">Veuillez remplir tous les champs.</small>
+        </form>
+      </div>
     </div>
   </div>
+</div>
+<div [hidden]="!submitted" class="container">
+  <h2>Vous avez modifié les champs suivants :</h2>
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="row">
+      <div class="font-weight-bold">Titre : </div>
+      <div>{{ template[0].msgNote }}</div>
+    </div>
+    <div class="row">
+      <div class="font-weight-bold">Message du MOTM : </div>
+      <div>{{ template[0].title }}</div>
+    </div>
+  </div>
+  <br>
+  <button class="btn btn-primary" (click)="submitted=false">Edit</button>
 </div>

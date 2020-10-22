@@ -13,10 +13,8 @@ data class User(
         @Id var id: Long?,
         @Column(name = "first_name") var firstName: String?,
         @Column(name = "last_name") var lastName: String?,
-        @Column(name = "age") var age: Int?
+        @Column(name = "age") var age: Int?,
+        @Column(name = "mail") var mail: String?
 ) {
-constructor() : this(null, null, null, null)
+constructor() : this(null, null, null, null, null)
 }
-////        @JsonManagedReference
-////        @OneToMany(mappedBy = "user")
-////        val mailList: List<Mail>

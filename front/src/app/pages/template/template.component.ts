@@ -12,6 +12,7 @@ import {Router} from '@angular/router';
 export class TemplateComponent implements OnInit {
 
   template: Template[];
+  submitted = false;
 
   constructor(private templateService: TemplatesService, private router: Router) { }
 
@@ -20,8 +21,6 @@ export class TemplateComponent implements OnInit {
   }
 
   onSubmit(ngForm: NgForm) {
-    //console.log(ngForm);
-    if(ngForm.valid) {
       let temp = defaultsDeep({
         id: 1,
         msgNote: ngForm.form.value.msgNote,
@@ -30,9 +29,8 @@ export class TemplateComponent implements OnInit {
   
       this.templateService.updateTemplate(temp)
         .subscribe();
-  
-      this.router.navigateByUrl('/templates');
-    }
+        
+      this.submitted = true;
   }
   
 }

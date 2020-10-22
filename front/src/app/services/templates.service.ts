@@ -32,7 +32,6 @@ export class TemplatesService {
   }
 
   updateTemplate(template: Template): Observable<any> {
-    console.log("i got updateTemplate");
     return this.http.put<any>(`${this.url}/templates`, template).pipe(timeout(10000));
   }
 
