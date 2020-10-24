@@ -10,7 +10,7 @@ const routes: Routes = [
     { path: '', data:{navbar: true}, component: HomeComponent },
     { path: 'user',  data:{navbar: true}, component: ListUsersComponent },
     { path: 'add-user', data:{navbar: true}, component: AddUserComponent },
-    { path: 'mail-template', data:{navbar: false}, component: MailTemplateComponent },
+    { path: 'mail-template/:id', data:{navbar: false}, component: MailTemplateComponent },
     { path: 'templates', data:{navbar: true}, component: TemplateComponent }];
 
 @NgModule({

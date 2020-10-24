@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Mail } from '../mail';
-import { Template } from '../models/template.model';
 import { TemplatesService } from '../services/templates.service';
 import {NgForm} from '@angular/forms';
 import { defaultsDeep } from 'lodash';
 import {Router} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from '../services/user.service';
+import { Template } from '../models/template.model';
+import { User } from '../models/user.model';
+import { MailService } from '../services/mail.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-mail-template',
@@ -13,31 +17,51 @@ import {Router} from '@angular/router';
 })
 export class MailTemplateComponent implements OnInit {
 
+  user: User[]
   template: Template[];
+  submitted = false;
+  id;
+  sub;
+  myDate = new Date();
 
-  constructor(private templateService: TemplatesService, private router: Router) { }
-
+  constructor(
+    private templateService: TemplatesService, 
+    private userService: UserService, 
+    private mailService: MailService, 
+    private router: Router, 
+    private _Activatedroute:ActivatedRoute,
+    private datePipe: DatePipe
+    ) { }
+    
   ngOnInit(): void {
     this.templateService.getTemplate().subscribe(template => this.template = template)
+    this.userService.getUsers().subscribe(user => this.user = user)
+    this.sub=this._Activatedroute.paramMap.subscribe((params) => {
+      this.id = params.get('id');
+    })
+    console.log(this.datePipe.transform(this.myDate, 'yyyy-MM-dd'));
     /*
       retrieve user info to bind to the mail
     */ 
   }
 
   onSubmit(ngForm: NgForm) {
-    if(ngForm.valid) {
-      let temp = defaultsDeep({
-        id: 1,
-        note: ngForm.form.value.note,
-        comment: ngForm.form.value.comment
-      });
-      
-      //create a addMailResult function to retrieve the data from the user
-
-      // this.templateService.updateTemplate(temp)
-      //   .subscribe();
-  
-      this.router.navigateByUrl('/templates');
-    }
+    //this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
+    //console.log(this.datePipe.transform(this.myDate, 'yyyy-MM-dd'));
+    // if(this.user[this.id].mail){
+    // }
+    let dateToday = this.datePipe.transform(this.myDate, 'yyyy-MM-dd')
+    let temp = defaultsDeep({
+      id: null,
+      note: ngForm.form.value.note,
+      comment: ngForm.form.value.comment,
+      date: dateToday,
+      mail: this.user[(this.id)-1].mail
+    });
+    this.mailService.addMail(temp).subscribe(temp => console.log(temp));;
+    // this.templateService.updateTemplate(temp)
+    //   .subscribe();
+    this.submitted = true;
+    this.router.navigateByUrl('/templates');
   }
 }

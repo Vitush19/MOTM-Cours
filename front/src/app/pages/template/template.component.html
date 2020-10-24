@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <h1>Template du Mood Of The Month</h1>
-      <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-sm-8 col-sm-offset-2" *ngIf="template">
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
           <div class="form-group">
             <h5>Titre :</h5>
@@ -25,7 +25,7 @@
     </div>
   </div>
 </div>
-<div [hidden]="!submitted" class="container">
+<div [hidden]="!submitted" class="container" *ngIf="template">
   <h2>Vous avez modifié les champs suivants :</h2>
   <div class="col-sm-8 col-sm-offset-2">
     <div class="row">

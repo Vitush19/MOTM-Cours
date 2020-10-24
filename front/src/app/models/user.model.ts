@@ -5,6 +5,7 @@ export class User {
   firstName: string;
   lastName: string;
   age: number;
+  mail: string;
 
   constructor(user?: Partial<User>) {
     defaultsDeep(this, user);

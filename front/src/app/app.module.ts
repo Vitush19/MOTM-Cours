@@ -11,6 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { TemplateComponent } from './pages/template/template.component';
 import { MonthDetailsComponent } from './pages/home/month-details/month-details.component';
 import { MailTemplateComponent } from './mail-template/mail-template.component';
+import { DatePipe } from '@angular/common'
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { MailTemplateComponent } from './mail-template/mail-template.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

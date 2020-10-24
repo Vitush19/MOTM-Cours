@@ -1,8 +1,8 @@
 
 
 
-INSERT INTO defaultdb.users (id, first_name, last_name, age, mail) VALUES (1, 'Paul', 'Harrohide', 20, 'sutharsanvithusan@gmail.com');
-INSERT INTO defaultdb.users (id, first_name, last_name, age, mail) VALUES (2, 'Harry', 'Covert', 25, 'vithusan05@hotmail.fr');
+INSERT INTO defaultdb.users (id, first_name, last_name, age, mail) VALUES (null, 'Paul', 'Harrohide', 20, 'sutharsanvithusan@gmail.com');
+INSERT INTO defaultdb.users (id, first_name, last_name, age, mail) VALUES (null, 'Harry', 'Covert', 25, 'vithusan05@hotmail.fr');
 # INSERT INTO defaultdb.users (id, first_name, last_name, age) VALUES (3, 'Alain', 'Posteur', null);
 # INSERT INTO defaultdb.users (id, first_name, last_name, age) VALUES (4, 'Elvire', 'Debord', null);
 # INSERT INTO defaultdb.users (id, first_name, last_name, age) VALUES (5, 'Laurent', 'Barre', 41);
@@ -12,7 +12,7 @@ INSERT INTO defaultdb.users (id, first_name, last_name, age, mail) VALUES (2, 'H
 # INSERT INTO defaultdb.users (id, first_name, last_name, age) VALUES (9, 'Thomas', 'Ouaque', null);
 # INSERT INTO defaultdb.users (id, first_name, last_name, age) VALUES (10, 'Sacha', 'Telfrize', 23);
 
-INSERT INTO defaultdb.templates (id, msg_note, title) VALUES (1, 'Donnez votre note du mois :', 'Comment allez-vous ? ICI');
+INSERT INTO defaultdb.templates (id, msg_note, title) VALUES (null, 'Donnez votre note du mois :', 'Comment allez-vous ? ICI');
 
-INSERT INTO defaultdb.mails (id, note, comment, age) VALUES (11, 5, 'Ca va bien !', null);
-INSERT INTO defaultdb.mails (id, note, comment, age) VALUES (21, 4, 'Ca va bien mon gars!', null);
+INSERT INTO defaultdb.mails (id, note, comment, date, mail) VALUES (null, 4, 'Ca va bien mon gars!', '2020-10-25', 'vithusan05@hotmail.fr');
+INSERT INTO defaultdb.mails (id, note, comment, date, mail) VALUES (null, 5, 'Ca va bien !', '2020-10-24', 'sutharsanvithusan@gmail.com');

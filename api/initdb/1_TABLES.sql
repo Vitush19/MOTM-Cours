@@ -25,5 +25,6 @@ create table mails
         primary key (id),
     note int not null,
     comment TEXT not null,
-    age DATE null
+    date DATE null,
+    mail TEXT not null
 );

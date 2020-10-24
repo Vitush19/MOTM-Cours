@@ -14,9 +14,10 @@ data class Mail(
         @Id var id: Long?,
         @Column(name = "note") var note: Int?,
         @Column(name = "comment") var comment: String?,
-        @Column(name = "age")  var age: Date?)
+        @Column(name = "date")  var date: Date?,
+        @Column(name = "mail") var mail: String?)
 {
-    constructor() : this(null, null, null, null)
+    constructor() : this(null, null, null, null, null)
 }
 //        @ManyToOne(optional = false, fetch = FetchType.LAZY)
 //        @JoinColumn(name = "user")
