@@ -1,12 +1,10 @@
 
 div{
-    text-align: center;
+	text-align: center;
 }
 
-.right
-{
-    float:right;
-    width:70%;
-    height:100%;
-
+.right{
+	float:right;
+	width:50%;
+	height:100%;
 }
