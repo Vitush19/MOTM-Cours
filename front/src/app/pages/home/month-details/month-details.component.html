@@ -1,18 +1,11 @@
-<div class="right">
-<h1>Note du mois d'{{selectedDate | date:'MMMM'}}</h1>
-<div  *ngFor="let motm of motms">
-    <div *ngIf="motm.date.getMonth()===selectedDate.getMonth()">
-
-        <h2>Date : {{motm.date | date}}</h2>
-        <h3>Id : {{motm.id}}</h3>
-        <!--<h3>Rate : {{motm.rate}} </h3>
-        <h3>Title : {{motm.title}} </h3>
-        <p>Message : {{motm.message}} </p>
-        -->
-    </div>
-
-
-
-
-</div>
+<div class="right" *ngIf="month">
+	<div>
+		{{ month }}
+	</div>
+	<div>
+		{{ result }}
+	</div>
+	<div *ngFor="let comment of comments">
+		{{ comment }}
+	</div>
 </div>
