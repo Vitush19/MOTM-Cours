@@ -3,7 +3,7 @@
 		{{ month }}
 	</div>
 	<div>
-		{{ rawResult }}
+		{{ result }}
 	</div>
 	<div class="progress" *ngIf="notes.length > 0">
 		<div class="progress-bar" [className]="result > 50 ? 'bg-success' : 'bg-danger'" role="progressbar" style="width: {{ result }}%" aria-valuemin="0" aria-valuemax="5"></div>

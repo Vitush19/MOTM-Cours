@@ -23,8 +23,10 @@ export class MonthDetailsComponent implements OnChanges {
     this.notes = r.previousValue;
     if(this.notes !== undefined && this.notes.length > 0){
       this.rawResult = this.notes.reduce((p,c) => p+c, )/this.notes.length;
-      this.result = (this.rawResult*100)/5 //result in %
-      //console.log(this.result);
+      let nb = (this.rawResult*100)/5 //result in %
+      let arrondi = nb*100;
+      arrondi = Math.round(arrondi);
+      this.result = arrondi/100;
     }
     else {
       this.rawResult = undefined;

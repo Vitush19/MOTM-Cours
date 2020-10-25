@@ -39,17 +39,9 @@ export class MailTemplateComponent implements OnInit {
     this.sub=this._Activatedroute.paramMap.subscribe((params) => {
       this.id = params.get('id');
     })
-    console.log(this.datePipe.transform(this.myDate, 'yyyy-MM-dd'));
-    /*
-      retrieve user info to bind to the mail
-    */ 
   }
 
   onSubmit(ngForm: NgForm) {
-    //this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
-    //console.log(this.datePipe.transform(this.myDate, 'yyyy-MM-dd'));
-    // if(this.user[this.id].mail){
-    // }
     let dateToday = this.datePipe.transform(this.myDate, 'yyyy-MM-dd')
     let temp = defaultsDeep({
       id: null,
@@ -59,9 +51,6 @@ export class MailTemplateComponent implements OnInit {
       mail: this.user[(this.id)-1].mail
     });
     this.mailService.addMail(temp).subscribe(temp => console.log(temp));;
-    // this.templateService.updateTemplate(temp)
-    //   .subscribe();
     this.submitted = true;
-    this.router.navigateByUrl('/templates');
   }
 }
