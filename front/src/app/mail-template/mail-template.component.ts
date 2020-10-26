@@ -25,6 +25,7 @@ export class MailTemplateComponent implements OnInit {
   id;
   sub;
   myDate = new Date();
+  notDisplayed = false;
 
   constructor(
     private templateService: TemplatesService, 
@@ -51,9 +52,14 @@ export class MailTemplateComponent implements OnInit {
       note: ngForm.form.value.note,
       comment: ngForm.form.value.comment,
       date: dateToday,
-      mail: this.user[(this.id)-1].mail
+      mail: this.user[(this.id)].mail
     });
-    this.mailService.addMail(temp).subscribe(temp => console.log(temp));;
+    this.mailService.addMail(temp).subscribe(temp => {
+      if(temp  == null){
+        this.notDisplayed = true;
+      }
+      console.log(temp)
+    });
     this.submitted = true;
   }
 }

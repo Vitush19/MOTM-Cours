@@ -14,5 +14,5 @@ INSERT INTO defaultdb.users (id, first_name, last_name, age, mail) VALUES (null,
 
 INSERT INTO defaultdb.templates (id, msg_note, title) VALUES (null, 'Donnez votre note du mois :', 'Comment allez-vous ? ICI');
 
-INSERT INTO defaultdb.mails (id, note, comment, date, mail) VALUES (null, 4, 'Ca va bien mon gars!', '2020-10-25', 'vithusan05@hotmail.fr');
-INSERT INTO defaultdb.mails (id, note, comment, date, mail) VALUES (null, 5, 'Ca va bien !', '2020-10-24', 'sutharsanvithusan@gmail.com');
+INSERT INTO defaultdb.mails (id, note, comment, date, mail) VALUES (null, 4, 'Ca va bien mon gars!', '2020-09-25', 'vithusan05@hotmail.fr');
+INSERT INTO defaultdb.mails (id, note, comment, date, mail) VALUES (null, 5, 'Ca va bien !', '2020-09-24', 'sutharsanvithusan@gmail.com');

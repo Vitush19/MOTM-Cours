@@ -1,4 +1,4 @@
-<div [hidden]="submitted">
+<div [hidden]="submitted || notDisplayed">
 	<div class="container" *ngIf="template">
 		<form (ngSubmit)="onSubmit(f)" #f="ngForm">
 			<h1>Mood Of The Month</h1>
@@ -17,4 +17,7 @@
 </div>
 <div [hidden]="!submitted" class="container" *ngIf="template">
   <h2>Votre demande a bien été pris en compte.</h2>
+</div>
+<div [hidden]="!notDisplayed" class="container" *ngIf="template">
+	<h2>Votre demande n'a malheureusement pas pu aboutir. Vous avez déjà répondu à ce MOTM.</h2>
 </div>
