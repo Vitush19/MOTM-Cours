@@ -26,4 +26,8 @@ export class MailService {
   addMail(mail: Mail): Observable<Mail> {
     return this.http.post<any>(`${this.url}/mails`, mail).pipe(timeout(10000));
   }
+
+  updateMail(mail: Mail): Observable<any> {
+    return this.http.put<any>(`${this.url}/mails`, mail).pipe(timeout(10000));
+  }
 }

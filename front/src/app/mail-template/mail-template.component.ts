@@ -25,7 +25,6 @@ export class MailTemplateComponent implements OnInit {
   id;
   sub;
   myDate = new Date();
-  latestId;
 
   constructor(
     private templateService: TemplatesService, 
@@ -39,6 +38,7 @@ export class MailTemplateComponent implements OnInit {
   ngOnInit(): void {
     this.templateService.getTemplate().subscribe(template => this.template = template)
     this.userService.getUsers().subscribe(user => this.user = user)
+    this.mailService.getMail().subscribe(mail => this.mail = mail)
     this.sub=this._Activatedroute.paramMap.subscribe((params) => {
       this.id = params.get('id');
     })
@@ -53,9 +53,7 @@ export class MailTemplateComponent implements OnInit {
       date: dateToday,
       mail: this.user[(this.id)-1].mail
     });
-    this.mailService.addMail(temp).subscribe(temp => console.log(temp));
-    this.mailService.getMail().subscribe(mail => this.mail = mail);
-    this.latestId = this.mail[(this.mail.length)-1];
+    this.mailService.addMail(temp).subscribe(temp => console.log(temp));;
     this.submitted = true;
   }
 }

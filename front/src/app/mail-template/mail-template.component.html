@@ -16,15 +16,5 @@
 	</div>
 </div>
 <div [hidden]="!submitted" class="container" *ngIf="template">
-	<h2>Votre demande a bien été pris en compte.</h2>
-	<div class="row">
-    <div class="col-xs-3">Titre :</div>
-    <div class="col-xs-9">{{ mail[latestId].note }}</div>
-  </div>
-  <div class="row">
-    <div class="col-xs-3">Message du MOTM :</div>
-    <div class="col-xs-9">{{ mail[0].[latestId].comment }}</div>
-  </div>
-  <br>
-  <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  <h2>Votre demande a bien été pris en compte.</h2>
 </div>
