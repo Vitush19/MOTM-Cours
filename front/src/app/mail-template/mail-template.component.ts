@@ -9,6 +9,7 @@ import { Template } from '../models/template.model';
 import { User } from '../models/user.model';
 import { MailService } from '../services/mail.service';
 import { DatePipe } from '@angular/common';
+import { Mail } from '../models/mail.model';
 
 @Component({
   selector: 'app-mail-template',
@@ -19,10 +20,12 @@ export class MailTemplateComponent implements OnInit {
 
   user: User[]
   template: Template[];
+  mail: Mail[];
   submitted = false;
   id;
   sub;
   myDate = new Date();
+  latestId;
 
   constructor(
     private templateService: TemplatesService, 
@@ -50,7 +53,9 @@ export class MailTemplateComponent implements OnInit {
       date: dateToday,
       mail: this.user[(this.id)-1].mail
     });
-    this.mailService.addMail(temp).subscribe(temp => console.log(temp));;
+    this.mailService.addMail(temp).subscribe(temp => console.log(temp));
+    this.mailService.getMail().subscribe(mail => this.mail = mail);
+    this.latestId = this.mail[(this.mail.length)-1];
     this.submitted = true;
   }
 }
