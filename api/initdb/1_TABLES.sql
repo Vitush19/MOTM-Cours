@@ -5,7 +5,7 @@ create table users
         primary key (id),
     first_name TEXT not null,
     last_name TEXT not null,
-    age int null,
+    age DATE null,
     mail TEXT not null
 );
 

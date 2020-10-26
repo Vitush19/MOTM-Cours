@@ -12,6 +12,7 @@ import { TemplateComponent } from './pages/template/template.component';
 import { MonthDetailsComponent } from './pages/home/month-details/month-details.component';
 import { MailTemplateComponent } from './mail-template/mail-template.component';
 import { DatePipe } from '@angular/common'
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,8 @@ import { DatePipe } from '@angular/common'
     TemplateComponent,
     MonthDetailsComponent,
     MailTemplateComponent
+    TemplateComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

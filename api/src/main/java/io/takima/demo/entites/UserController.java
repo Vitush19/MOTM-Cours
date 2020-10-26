@@ -1,9 +1,11 @@
-package io.takima.demo;
+package io.takima.demo.entites;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
@@ -12,8 +14,10 @@ public class UserController {
 
     private final UserDAO userDAO;
 
+    @Autowired
     public UserController(UserDAO userDAO) {
-        this.userDAO = userDAO;
+        this.userDAO=userDAO;
+
     }
 
     @GetMapping()
@@ -30,9 +34,27 @@ public class UserController {
         return this.userDAO.save(user);
     }
 
+
+    @GetMapping("/{id}")
+    public User getUserUniq(@PathVariable Long id) {
+
+        Optional<User> selectedUser = this.userDAO.findById(id);
+
+        return selectedUser.orElse(null);
+
+    }
+
+    @PutMapping()
+    public User updateUser(@RequestBody User user) {
+        if(this.userDAO.existsById(user.getId())){
+            return this.userDAO.save(user);
+        }
+        return null;
+
+    }
+
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
         this.userDAO.deleteById(id);
     }
-
 }
