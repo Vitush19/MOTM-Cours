@@ -1,6 +1,5 @@
 package io.takima.demo.mail
 
-import io.takima.demo.User
 import java.util.*
 import javax.persistence.*
 

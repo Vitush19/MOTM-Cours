@@ -1,7 +1,7 @@
 package io.takima.demo.sendMail;
 
-import io.takima.demo.User;
-import io.takima.demo.UserDAO;
+import io.takima.demo.entites.User;
+import io.takima.demo.entites.UserDAO;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.scheduling.annotation.EnableAsync;

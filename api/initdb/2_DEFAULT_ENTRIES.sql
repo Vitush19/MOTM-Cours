@@ -1,8 +1,8 @@
 
 
 
-INSERT INTO defaultdb.users (id, first_name, last_name, age, mail) VALUES (null, 'Paul', 'Harrohide', 20, 'sutharsanvithusan@gmail.com');
-INSERT INTO defaultdb.users (id, first_name, last_name, age, mail) VALUES (null, 'Harry', 'Covert', 25, 'vithusan05@hotmail.fr');
+INSERT INTO defaultdb.users (id, first_name, last_name, age, mail) VALUES (null, 'Paul', 'Harrohide', '2000-12-12', 'sutharsanvithusan@gmail.com');
+INSERT INTO defaultdb.users (id, first_name, last_name, age, mail) VALUES (null, 'Harry', 'Covert', '1995-11-11', 'vithusan05@hotmail.fr');
 # INSERT INTO defaultdb.users (id, first_name, last_name, age) VALUES (3, 'Alain', 'Posteur', null);
 # INSERT INTO defaultdb.users (id, first_name, last_name, age) VALUES (4, 'Elvire', 'Debord', null);
 # INSERT INTO defaultdb.users (id, first_name, last_name, age) VALUES (5, 'Laurent', 'Barre', 41);
