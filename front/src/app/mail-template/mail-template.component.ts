@@ -58,8 +58,10 @@ export class MailTemplateComponent implements OnInit {
       if(temp  == null){
         this.notDisplayed = true;
       }
-      console.log(temp)
+      else {
+        this.submitted = true;
+      }
     });
-    this.submitted = true;
+    
   }
 }
