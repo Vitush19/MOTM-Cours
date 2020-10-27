@@ -48,7 +48,6 @@ export class HomeComponent implements OnInit {
     if (typeof this.notes !== 'undefined' && this.notes.length > 0) {
       const average = arr => arr.reduce((p,c) => p+c, 0)/arr.length;
       this.result = average(this.notes);
-      //console.log(this.result);
     } 
     this.result = undefined;
     this.comments = [];

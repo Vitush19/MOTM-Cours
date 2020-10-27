@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { TemplatesService } from '../services/templates.service';
 import {NgForm} from '@angular/forms';
 import { defaultsDeep } from 'lodash';
-import {Router} from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { Template } from '../models/template.model';
@@ -21,6 +20,7 @@ export class MailTemplateComponent implements OnInit {
   user: User[]
   template: Template[];
   mail: Mail[];
+  mailEdit: Mail;
   submitted = false;
   id;
   sub;
@@ -30,8 +30,7 @@ export class MailTemplateComponent implements OnInit {
   constructor(
     private templateService: TemplatesService, 
     private userService: UserService, 
-    private mailService: MailService, 
-    private router: Router, 
+    private mailService: MailService,
     private _Activatedroute:ActivatedRoute,
     private datePipe: DatePipe
     ) { }
@@ -42,26 +41,45 @@ export class MailTemplateComponent implements OnInit {
     this.mailService.getMail().subscribe(mail => this.mail = mail)
     this.sub=this._Activatedroute.paramMap.subscribe((params) => {
       this.id = params.get('id');
+      this.mailService.getMailbyUser(this.id).subscribe(m => this.mailEdit = m);
     })
   }
 
   onSubmit(ngForm: NgForm) {
     let dateToday = this.datePipe.transform(this.myDate, 'yyyy-MM-dd')
-    let temp = defaultsDeep({
+    let mailToSend = defaultsDeep({
       id: null,
       note: ngForm.form.value.note,
       comment: ngForm.form.value.comment,
       date: dateToday,
-      mail: this.user[(this.id)].mail
+      mail: this.user[(this.id)-1].mail
     });
-    this.mailService.addMail(temp).subscribe(temp => {
-      if(temp  == null){
+    this.mailService.addMail(mailToSend).subscribe(mail => {
+      if(mail  == null){
         this.notDisplayed = true;
       }
       else {
         this.submitted = true;
       }
     });
-    
+  }
+
+  onEdit(ngForm: NgForm) {
+    let dateToday = this.datePipe.transform(this.myDate, 'yyyy-MM-dd')
+    let mailToUpdate = defaultsDeep({
+      id: this.mailEdit.id,
+      note: ngForm.form.value.noteEdit,
+      comment: ngForm.form.value.commentEdit,
+      date: dateToday,
+      mail: this.user[(this.id)-1].mail
+    });
+    this.mailService.updateMail(mailToUpdate).subscribe(mail => {
+      if(mail  == null){
+        this.notDisplayed = true;
+      }
+      else {
+        this.submitted = true;
+      }
+    });
   }
 }
