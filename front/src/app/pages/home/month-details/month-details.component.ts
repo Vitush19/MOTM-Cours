@@ -41,31 +41,33 @@ export class MonthDetailsComponent implements OnChanges {
     let c=0;
     let d=0;
     let e=0;
-    for(let i = 0; i < this.notes.length; i++){
-      switch(this.notes[i]){
-        case 1:
-          a++;
-          break;
-        case 2:
-          b++;
-          break;
-        case 3:
-          c++;
-          break;
-        case 4:
-          d++;
-          break;
-        case 5:
-          e++;
-          break;
-        default:
-          break;
+    if(this.notes !== undefined){
+      for(let i = 0; i < this.notes.length; i++){
+        switch(this.notes[i]){
+          case 1:
+            a++;
+            break;
+          case 2:
+            b++;
+            break;
+          case 3:
+            c++;
+            break;
+          case 4:
+            d++;
+            break;
+          case 5:
+            e++;
+            break;
+          default:
+            break;
+        }
+        stock = [a, b, c, d, e];
       }
-      stock = [a, b, c, d, e];
+      this.barChartData = [
+        { data: stock, label: 'notes' }
+      ];
     }
-    this.barChartData = [
-      { data: stock, label: 'notes' }
-    ];
 
     if(this.notes !== undefined && this.notes.length > 0){
       this.rawResult = this.notes.reduce((p,d) => p+d, )/this.notes.length;

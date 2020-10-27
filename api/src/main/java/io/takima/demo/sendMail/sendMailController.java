@@ -4,6 +4,7 @@ import io.takima.demo.entites.User;
 import io.takima.demo.entites.UserDAO;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -26,14 +27,16 @@ public class sendMailController {
         this.userDAO = userDAO;
     }
 
-    //@Async
-    public void sendMail(JavaMailSenderImpl mailSender, User user, String month) {
+    @Async
+    public void sendMail(JavaMailSenderImpl mailSender, User user) {
 
         SimpleMailMessage message = new SimpleMailMessage();
+        Long id = user.getId();
         message.setFrom("motmjava@gmail.com");
         message.setTo(user.getMail());
-        message.setSubject(" pour le mois de "+ month +" en dur");
-        message.setText("Ouais je teste le mail");
+        message.setSubject("Votre MOTM pour ce mois");
+        message.setText("Bonjour ! Nous nous permettons de vous envoyer un mail afin que vous remplissiez le MOTM. " +
+                "Veuillez compléter le formulaire sur le lien suivant : http://localhost:4200/mail-template/"+id);
 
         mailSender.send(message);
     }
@@ -44,11 +47,8 @@ public class sendMailController {
         return false;
     }
 
-    //@Async
-    //@Scheduled
-    //@RequestMapping(value = "/sendSimpleEmail", method = RequestMethod.GET)
-    //@PostMapping("/sendSimpleEmail")
-    @Scheduled(cron = "0 19 19 22 * ?", zone = "Europe/Paris")
+    @Async
+    @Scheduled(cron = "0 44 00 28 * ?", zone = "Europe/Paris")
     public void sendToUser(){
 
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
@@ -64,7 +64,7 @@ public class sendMailController {
         properties.put("mail.debug", "true");
         for(User user : this.userDAO.findAll()){
             if(isNotNullOrEmpty(user.getMail()))
-            sendMail(mailSender, user,"Mai");
+            sendMail(mailSender, user);
         }
     }
 }

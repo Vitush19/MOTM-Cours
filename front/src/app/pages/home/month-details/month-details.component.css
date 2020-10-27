@@ -17,6 +17,9 @@ div{
 	align-content: stretch;
 }
 
+.msg {
+	font-weight: bold;
+}
 .head {
 	font-weight: bold;
   font-size: 30px;

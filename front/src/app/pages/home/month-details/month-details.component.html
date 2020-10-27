@@ -1,4 +1,5 @@
 <div class="right" *ngIf="month">
+
 	<div class="head">
 		<div>
 			{{ month }}
@@ -7,6 +8,7 @@
 			{{ result }}
 		</div>
 	</div>
+	<div *ngIf="comments" class="msg">Vous n'avez pas de retours pour ce mois-ci.</div>
 	<div class="test">
 		<div class="progress" *ngIf="notes.length > 0">
 			<div class="progress-bar" [className]="result > 50 ? 'bg-success' : 'bg-danger'" role="progressbar" style="width: {{ result }}%" aria-valuemin="0" aria-valuemax="5"></div>
