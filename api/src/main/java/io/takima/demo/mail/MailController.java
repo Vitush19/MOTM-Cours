@@ -27,6 +27,32 @@ public class MailController {
         return mails;
     }
 
+    @GetMapping("/{id}")
+    public Mail getMailByUser(@PathVariable Long id){
+        Iterable<Mail> it = this.mailDAO.findAll();
+        List<Mail> mails = new ArrayList<>();
+        boolean check = false;
+        Mail mailUser = null;
+        it.forEach(e -> mails.add(e));
+        for(int i = 0; i < mails.toArray().length; i++){
+            Mail m = mails.get(i);
+            Date today = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String dateMail = sdf.format(m.getDate());
+            String dateToday = sdf.format(today);
+            String[] partDateMail = dateMail.split("-");
+            String[] partDateToday = dateToday.split("-");
+            if(partDateMail[1].equals(partDateToday[1])){
+                check = true;
+                mailUser = m;
+            }
+        }
+        if(check){
+            return mailUser;
+        }
+        return null;
+    }
+
     @PostMapping()
     public Mail addMail(@RequestBody Mail mail) {
         Iterable<Mail> it = this.mailDAO.findAll();
