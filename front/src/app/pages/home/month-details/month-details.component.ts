@@ -1,5 +1,4 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
-import { NumberValueAccessor } from '@angular/forms';
 @Component({
   selector: 'app-month-details',
   templateUrl: './month-details.component.html',
@@ -14,6 +13,7 @@ export class MonthDetailsComponent implements OnChanges {
   notes: number[];
   rawResult: number;
   result: number;
+
 
   constructor() {}
 

@@ -4,28 +4,46 @@ div{
   text-align: center;
 }
 
-.left{
-	float:left;
-	display: flex;
-	flex-direction: column;
+
+.dashboard {
+  font-weight: bold;
+  font-size: 40px;
+  height: 3em;
+  line-height: 3em;
+  background-color: #253746;
+  color: #f7f6f3;
 }
-.right{
-  float:right;
-  width:70%;
-  height:100%;
+
+.bloc {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
 }
+
+.contain {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+} 
+
 
 .wrapper {
   display: grid;
   grid-template-columns: 150px 150px 150px;
   grid-gap: 10px;
-  background-color: #fff;
-  color: #444;
+  background-color: #f7f6f3;
+  color: #253746;
 }
 
 .box {
-  background-color: #444;
-  color: #fff;
+  background-color: #253746;
+  color: #f7f6f3;
   border-radius: 5px;
   padding: 20px;
   font-size: 150%;

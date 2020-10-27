@@ -1,14 +1,18 @@
 <div class="right" *ngIf="month">
+	<div class="head">
+		<div>
+			{{ month }}
+		</div>
+		<div>
+			{{ result }}
+		</div>
+	</div>
 	<div class="test">
-		{{ month }}
-	</div>
-	<div>
-		{{ result }}
-	</div>
-	<div class="progress" *ngIf="notes.length > 0">
-		<div class="progress-bar" [className]="result > 50 ? 'bg-success' : 'bg-danger'" role="progressbar" style="width: {{ result }}%" aria-valuemin="0" aria-valuemax="5"></div>
-	</div>
-	<div *ngFor="let comment of comments">
-		{{ comment }}
+		<div class="progress" *ngIf="notes.length > 0">
+			<div class="progress-bar" [className]="result > 50 ? 'bg-success' : 'bg-danger'" role="progressbar" style="width: {{ result }}%" aria-valuemin="0" aria-valuemax="5"></div>
+		</div>
+		<div *ngFor="let comment of comments" class="comment">
+			{{ comment }}
+		</div>
 	</div>
 </div>

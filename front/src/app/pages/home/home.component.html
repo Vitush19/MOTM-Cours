@@ -1,9 +1,14 @@
-<div class="left">
-	<h1>Previous months</h1>
-	<div class="wrapper">
-		<div class="box" *ngFor="let month of months; let i = index" (click)="onSelect(month, i)">
-			{{ month }}
+<div class="dashboard">DashBoard MOTM</div>
+<div class="container bloc">
+	<div class="left">
+		<h1>Mois précédent</h1>
+		<div class="wrapper">
+			<div class="box" *ngFor="let month of months; let i = index" (click)="onSelect(month, i)">
+				{{ month }}
+			</div>
 		</div>
 	</div>
+	<div class="right">
+		<app-month-details [month]="currentMonth" [notesMonth]="notes" [commentsMonth]="comments"></app-month-details>
+	</div>
 </div>
-<app-month-details [month]="currentMonth" [notesMonth]="notes" [commentsMonth]="comments"></app-month-details>
