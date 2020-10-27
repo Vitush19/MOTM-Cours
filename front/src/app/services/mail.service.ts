@@ -23,6 +23,14 @@ export class MailService {
     return this.http.get<Mail[]>(`${this.url}/mails`).pipe(timeout(10000));
   }
 
+  getMailById(id: number): Observable<Mail> {
+    return this.http.get<Mail>(`${this.url}/mails/${id}`).pipe(timeout(10000));
+  }
+
+  getMailsOfUser(id: number): Observable<number[]> {
+    return this.http.get<number[]>(`${this.url}/mails/edit/${id}`).pipe(timeout(10000));
+  }
+
   addMail(mail: Mail): Observable<Mail> {
     return this.http.post<any>(`${this.url}/mails`, mail).pipe(timeout(10000));
   }

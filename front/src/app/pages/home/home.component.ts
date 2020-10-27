@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
         let stock = this.datepipe.transform(element.date, "yyyy-MM-dd").split("-", 2);
         this.monthMail.push(stock[1]);
       })
-      
       })
   }
 
@@ -48,7 +47,6 @@ export class HomeComponent implements OnInit {
     if (typeof this.notes !== 'undefined' && this.notes.length > 0) {
       const average = arr => arr.reduce((p,c) => p+c, 0)/arr.length;
       this.result = average(this.notes);
-      //console.log(this.result);
     } 
     this.result = undefined;
     this.comments = [];

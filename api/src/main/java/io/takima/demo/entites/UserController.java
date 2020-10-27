@@ -37,7 +37,6 @@ public class UserController {
 
     @GetMapping("/{id}")
     public User getUserUniq(@PathVariable Long id) {
-
         Optional<User> selectedUser = this.userDAO.findById(id);
 
         return selectedUser.orElse(null);

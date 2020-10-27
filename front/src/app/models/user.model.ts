@@ -6,6 +6,7 @@ export class User {
   lastName: string;
   age = new Date();
   mail: string;
+  mailList: number[];
 
   constructor(user?: Partial<User>) {
     defaultsDeep(this, user);

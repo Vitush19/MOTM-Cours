@@ -33,8 +33,13 @@ public class MailController {
         return mails;
     }
 
+    @GetMapping("/edit/{id}")
+    public List<Integer> getMailsOfUser(@PathVariable Long id) {
+        return this.userDAO.findMailOfUser(id);
+    }
+
     @GetMapping("/{id}")
-    public Mail getUserUniq(@PathVariable Long id) {
+    public Mail getMailUniq(@PathVariable Long id) {
 
         boolean check = false;
         Mail mailUser = null;

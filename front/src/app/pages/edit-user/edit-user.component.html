@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 formEditUser">
+          <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+              <div class="form-group">
+                  <label for="firstName">
+                      First Name
+                  </label>
+                  <input required type="text" id="firstName" class="form-control" name="firstName" ngModel>
+              </div>
+              <div class="form-group">
+                  <label for="lastName">
+                      Last Name
+                  </label>
+                  <input required type="text" id="lastName" class="form-control" name="lastName" ngModel>
+              </div>
+              <div class="form-group">
+                  <label for="age">
+                      Date de naissance
+                  </label>
+                  <input required type="date" id="age" class="form-control" name="age" ngModel>
+              </div>
+              <div class="form-group">
+                  <label for="mail">
+                      Email
+                  </label>
+                  <input required type="email" id="mail" class="form-control" name="mail" ngModel>
+              </div>
+              <button class="btn btn-primary" type="submit">Valider</button>
+              <small id="help" class="form-text text-muted" *ngIf="f.invalid">Veuillez remplir tous les champs.</small>
+          </form>
+      </div>
+  </div>
+</div>

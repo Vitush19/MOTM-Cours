@@ -19,8 +19,10 @@ import { Mail } from '../models/mail.model';
 export class MailTemplateComponent implements OnInit {
 
   user: User[]
+  u: User;
   template: Template[];
   mail: Mail[];
+  mailEdit: Mail;
   submitted = false;
   id;
   sub;
@@ -41,19 +43,39 @@ export class MailTemplateComponent implements OnInit {
     this.mailService.getMail().subscribe(mail => this.mail = mail)
     this.sub=this._Activatedroute.paramMap.subscribe((params) => {
       this.id = params.get('id');
+      this.mailService.getMailById(this.id).subscribe(m => this.mailEdit = m)
+      this.userService.getUserById(this.id).subscribe(user => this.u = user)
     })
   }
 
   onSubmit(ngForm: NgForm) {
     let dateToday = this.datePipe.transform(this.myDate, 'yyyy-MM-dd')
-    let temp = defaultsDeep({
+    if(!this.mailEdit){
+      let mailToSend = defaultsDeep({
       id: null,
       note: ngForm.form.value.note,
       comment: ngForm.form.value.comment,
       date: dateToday,
-      mail: this.user[(this.id)-1].mail
+      mail: this.user[(this.id)-1].mail,
+      user: this.u,
     });
-    this.mailService.addMail(temp).subscribe(temp => console.log(temp));;
+    console.log(mailToSend);
+    this.mailService.addMail(mailToSend).subscribe(m => console.log(m));;
     this.submitted = true;
+    }
+    else {
+      let mailToUpdate = defaultsDeep({
+        id: this.id,
+        note: ngForm.form.value.note,
+        comment: ngForm.form.value.comment,
+        date: dateToday,
+        mail: this.user[(this.id)-1].mail,
+        user: this.u,
+      });
+      console.log(mailToUpdate);
+      this.mailService.updateMail(mailToUpdate).subscribe(m => console.log(m));;
+      this.submitted = true;
+    }
+    
   }
 }
