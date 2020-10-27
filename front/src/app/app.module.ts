@@ -13,6 +13,7 @@ import { MonthDetailsComponent } from './pages/home/month-details/month-details.
 import { MailTemplateComponent } from './mail-template/mail-template.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { DatePipe } from '@angular/common';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DatePipe } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
