@@ -6,7 +6,9 @@ create table users
     first_name TEXT not null,
     last_name TEXT not null,
     age DATE null,
-    mail TEXT not null
+    mail TEXT not null,
+    mail_id bigint null,
+        foreign key (mail_id) references users (id)
 );
 
 create table templates
@@ -26,5 +28,7 @@ create table mails
     note int not null,
     comment TEXT not null,
     date DATE null,
-    mail TEXT not null
+    mail TEXT not null,
+    user_id bigint not null,
+        foreign key (user_id) references users (id)
 );
