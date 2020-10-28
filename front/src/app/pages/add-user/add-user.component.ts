@@ -3,9 +3,7 @@ import {NgForm} from '@angular/forms';
 import {UserService} from '../../services/user.service';
 import { defaultsDeep } from 'lodash';
 import {Router} from '@angular/router';
-import {User} from '../../models/user.model';
 
-// @ts-ignore
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -19,16 +17,14 @@ export class AddUserComponent implements OnInit {
   }
 
   onSubmit(ngForm: NgForm) {
-    console.log(ngForm);
     if(ngForm.valid){
       const user = defaultsDeep({
         id: null,
         firstName: ngForm.form.value.firstName,
         lastName: ngForm.form.value.lastName,
-        email: ngForm.form.value.email,
         age: ngForm.form.value.age,
+        mail: ngForm.form.value.mail,
       });
-
       this.userService.addUser(user).subscribe(user => console.log(user));
 
       this.router.navigateByUrl('/user');

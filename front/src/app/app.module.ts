@@ -9,7 +9,10 @@ import { HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { TemplateComponent } from './pages/template/template.component';
+import { MonthDetailsComponent } from './pages/home/month-details/month-details.component';
+import { MailTemplateComponent } from './mail-template/mail-template.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,8 @@ import { EditUserComponent } from './pages/edit-user/edit-user.component';
     AddUserComponent,
     HomeComponent,
     TemplateComponent,
+    MonthDetailsComponent,
+    MailTemplateComponent,
     EditUserComponent
   ],
   imports: [
@@ -26,7 +31,7 @@ import { EditUserComponent } from './pages/edit-user/edit-user.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

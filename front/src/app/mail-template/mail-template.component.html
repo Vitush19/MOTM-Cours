@@ -1,0 +1,42 @@
+<div [hidden]="submitted || notDisplayed || mailEdit">
+	<div class="container" *ngIf="template">
+		<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+			<h1>Mood Of The Month</h1>
+			<div class="form-group">
+				<label for="note">{{ template[0].msgNote }}</label>
+				<input required type="text" class="form-control" id="note" name="note" ngModel />
+			</div>
+			<div class="form-group">
+				<label for="comment">{{ template[0].title }} </label>
+				<input required type="text" class="form-control" id="comment" name="comment" ngModel />
+			</div>
+			<button type="submit" class="btn btn-primary" [disabled]="!f.form.valid">Envoyer</button>
+			<small id="titleHelp" class="form-text text-muted" *ngIf="f.invalid">Veuillez remplir tous les champs.</small>
+		</form>
+	</div>
+</div>
+<div [hidden]="!submitted" class="container" *ngIf="template">
+  <h2>Votre demande a bien été pris en compte.</h2>
+</div>
+<div [hidden]="!notDisplayed" class="container" *ngIf="template">
+	<h2>Votre demande n'a malheureusement pas pu aboutir. Veuillez réessayer à nouveau.</h2>
+</div>
+<div [hidden]="!mailEdit">
+	<div class="container" *ngIf="template">
+		<form (ngSubmit)="onEdit(fe)" #fe="ngForm">
+			<h1>Mood Of The Month</h1>
+			<div class="form-group">
+				<label for="noteEdit">{{ template[0].msgNote }}</label>
+				<small class="form-text text-muted" *ngIf="mailEdit">{{ mailEdit.note }}</small>
+				<input required type="text" class="form-control" id="noteEdit" name="noteEdit" ngModel />
+			</div>
+			<div class="form-group">
+				<label for="commentEdit">{{ template[0].title }} </label>
+				<small class="form-text text-muted" *ngIf="mailEdit">{{ mailEdit.comment }}</small>
+				<input required type="text" class="form-control" id="commentEdit" name="commentEdit" ngModel />
+			</div>
+			<button type="submit" class="btn btn-primary" [disabled]="!fe.form.valid">Modifier</button>
+			<small id="titleHelp" class="form-text text-muted" *ngIf="fe.invalid">Veuillez remplir tous les champs.</small>
+		</form>
+	</div>
+</div>

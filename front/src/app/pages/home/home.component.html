@@ -1,1 +1,9 @@
-<p>home works!</p>
+<div class="left">
+	<h1>Previous months</h1>
+	<div class="wrapper">
+		<div class="box" *ngFor="let month of months; let i = index" (click)="onSelect(month, i)">
+			{{ month }}
+		</div>
+	</div>
+</div>
+<app-month-details [month]="currentMonth" [notesMonth]="notes" [commentsMonth]="comments"></app-month-details>

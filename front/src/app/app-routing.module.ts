@@ -4,14 +4,16 @@ import {ListUsersComponent} from './pages/list-users/list-users.component';
 import {AddUserComponent} from './pages/add-user/add-user.component';
 import {HomeComponent} from './pages/home/home.component';
 import {TemplateComponent} from './pages/template/template.component';
+import { MailTemplateComponent } from './mail-template/mail-template.component';
 import {EditUserComponent} from './pages/edit-user/edit-user.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'user', component: ListUsersComponent },
-  { path: 'template', component: TemplateComponent },
-  { path: 'add-user', component: AddUserComponent},
-    { path: 'edit-user/:id', component: EditUserComponent}];
+    { path: '', data:{navbar: true}, component: HomeComponent },
+    { path: 'user',  data:{navbar: true}, component: ListUsersComponent },
+    { path: 'add-user', data:{navbar: true}, component: AddUserComponent },
+    { path: 'mail-template/:id', data:{navbar: false}, component: MailTemplateComponent },
+    { path: 'templates', data:{navbar: true}, component: TemplateComponent },
+    { path: 'edit-user/:id', data:{navbar: true}, component: EditUserComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
