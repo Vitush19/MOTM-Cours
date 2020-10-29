@@ -18,7 +18,7 @@ public class TemplateController {
     public List<Template> getTemplate() {
         Iterable<Template> it = this.templateDAO.findAll();
         List<Template> templates = new ArrayList<>();
-        it.forEach(e -> templates.add(e));
+        it.forEach(templates::add);
 
         return templates;
     }

@@ -1,4 +1,6 @@
 package io.takima.demo.mail;
+import io.takima.demo.entites.User;
+import io.takima.demo.entites.UserDAO;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,16 +15,18 @@ import java.util.List;
 @EnableAsync
 public class MailController {
     private final MailDAO mailDAO;
+    private final UserDAO userDAO;
 
-    public MailController(MailDAO mailDAO) {
+    public MailController(MailDAO mailDAO, UserDAO userDAO) {
         this.mailDAO = mailDAO;
+        this.userDAO = userDAO;
     }
 
     @GetMapping()
     public List<Mail> getMail() {
         Iterable<Mail> it = this.mailDAO.findAll();
         List<Mail> mails = new ArrayList<>();
-        it.forEach(e -> mails.add(e));
+        it.forEach(mails::add);
 
         return mails;
     }
@@ -30,21 +34,27 @@ public class MailController {
     @GetMapping("/{id}")
     public Mail getMailByUser(@PathVariable Long id){
         Iterable<Mail> it = this.mailDAO.findAll();
+        User user = null;
+        if(this.userDAO.findById(id).isPresent()){
+            user = this.userDAO.findById(id).get();
+        }
         List<Mail> mails = new ArrayList<>();
+        Date today = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         boolean check = false;
         Mail mailUser = null;
-        it.forEach(e -> mails.add(e));
+        it.forEach(mails::add);
         for(int i = 0; i < mails.toArray().length; i++){
             Mail m = mails.get(i);
-            Date today = new Date();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String dateMail = sdf.format(m.getDate());
             String dateToday = sdf.format(today);
             String[] partDateMail = dateMail.split("-");
             String[] partDateToday = dateToday.split("-");
             if(partDateMail[1].equals(partDateToday[1])){
-                check = true;
-                mailUser = m;
+                if(user != null && user.getMail().equals(m.getMail())){
+                    check = true;
+                    mailUser = m;
+                }
             }
         }
         if(check){
@@ -55,15 +65,16 @@ public class MailController {
 
     @PostMapping()
     public Mail addMail(@RequestBody Mail mail) {
+
         Iterable<Mail> it = this.mailDAO.findAll();
         List<Mail> mails = new ArrayList<>();
         boolean check = false;
-        it.forEach(e -> mails.add(e));
+        Date today = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        it.forEach(mails::add);
         for(int i = 0; i < mails.toArray().length; i++){
             Mail m = mails.get(i);
             if(m.getMail().equals(mail.getMail())){
-                Date today = new Date();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String dateMail = sdf.format(m.getDate());
                 String dateToday = sdf.format(today);
                 String[] partDateMail = dateMail.split("-");
