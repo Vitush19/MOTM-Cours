@@ -3,6 +3,7 @@ package io.takima.demo.sendMail;
 import io.takima.demo.entites.User;
 import io.takima.demo.entites.UserDAO;
 import io.takima.demo.mail.Mail;
+import io.takima.demo.mail.MailController;
 import io.takima.demo.mail.MailDAO;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.mail.SimpleMailMessage;
@@ -30,22 +31,37 @@ public class sendMailController {
 
     private final UserDAO userDAO;
     private final MailDAO mailDAO;
+    private final MailController mailController;
 
-    public sendMailController(UserDAO userDAO, MailDAO mailDAO) {
+    public sendMailController(UserDAO userDAO, MailDAO mailDAO, MailController mailController) {
         this.userDAO = userDAO;
         this.mailDAO = mailDAO;
+        this.mailController = mailController;
     }
 
     @Async
-    public void sendMail(JavaMailSenderImpl mailSender, User user) {
+    public void sendMail(JavaMailSenderImpl mailSender, User user, String title) {
 
         SimpleMailMessage message = new SimpleMailMessage();
         Long id = user.getId();
         message.setFrom("motmjava@gmail.com");
         message.setTo(user.getMail());
-        message.setSubject("Votre MOTM pour ce mois");
+        message.setSubject(title);
         message.setText("Bonjour ! Nous nous permettons de vous envoyer un mail afin que vous remplissiez le MOTM. " +
                     "Veuillez compléter le formulaire sur le lien suivant : http://localhost:4200/mail-template/"+id);
+
+        mailSender.send(message);
+    }
+
+    @Async
+    public void sendMail(JavaMailSenderImpl mailSender, User user, String title, String msg) {
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        Long id = user.getId();
+        message.setFrom("motmjava@gmail.com");
+        message.setTo(user.getMail());
+        message.setSubject(title);
+        message.setText(msg);
 
         mailSender.send(message);
     }
@@ -70,10 +86,29 @@ public class sendMailController {
     @Scheduled(cron = "0 44 00 28 * ?", zone = "Europe/Paris")
     public void sendToUser(){
 
+        String str = "Votre MOTM pour ce mois";
         JavaMailSenderImpl mailSender = getJavaMailSender();
         for(User user : this.userDAO.findAll()){
             if(isNotNullOrEmpty(user.getMail()))
-            sendMail(mailSender, user);
+            sendMail(mailSender, user, str);
+        }
+    }
+
+    @Async
+    //@Scheduled(cron = "0 0 0 ? * SUN *", zone = "Europe/Paris")
+    @Scheduled(cron = "0 07 00 30 * ?", zone = "Europe/Paris")
+    public void sendRemindersToUser(){
+
+        JavaMailSenderImpl mailSender = getJavaMailSender();
+
+        String str = "Reminder : N'oubliez pas de remplir votre MOTM";
+        for(User user : this.userDAO.findAll()){
+            Mail mail = this.mailController.getMailByUser(user.getId());
+            String msg = "Nous nous permettons de vous envoyer un reminder pour vous rappeler de compléter votre formulaire"
+                    + " pour le MOTM de ce mois au lien suivant : http://localhost:4200/mail-template/"+user.getId();
+            if(mail == null && isNotNullOrEmpty(user.getMail())){
+                    sendMail(mailSender, user, str, msg);
+            }
         }
     }
 
