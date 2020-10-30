@@ -1,12 +1,11 @@
 <div class="dashboard">DashBoard MOTM</div>
 <div class="container bloc">
 	<div class="left">
-		<h1>Mois précédent</h1>
-		<div class="wrapper">
-			<div class="box" *ngFor="let month of months; let i = index" (click)="onSelect(month, i)">
-				{{ month }}
-			</div>
-		</div>
+		<ul class="nav justify-content-center">
+			<li class="nav-item" *ngFor="let month of months; let i = index" (click)="onSelect(month, i)">
+				<a class="nav-link pointer">{{ month }}</a>
+			</li>
+		</ul>
 	</div>
 	<div class="right">
 		<app-month-details [month]="currentMonth" [notesMonth]="notes" [commentsMonth]="comments"></app-month-details>
