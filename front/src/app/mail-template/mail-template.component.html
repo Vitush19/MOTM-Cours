@@ -1,10 +1,15 @@
 <div [hidden]="submitted || notDisplayed || mailEdit">
-	<div class="container" *ngIf="template">
+	<div class="container formulaire" *ngIf="template">
 		<form (ngSubmit)="onSubmit(f)" #f="ngForm">
 			<h1>Mood Of The Month</h1>
 			<div class="form-group">
 				<label for="note">{{ template[0].msgNote }}</label>
-				<input required type="text" class="form-control" id="note" name="note" ngModel />
+				<div class="input-group">
+					<input required type="text" class="form-control" id="note" name="note" ngModel />
+					<div class="input-group-append">
+						<span class="input-group-text">/ 5</span>
+					</div>
+				</div>
 			</div>
 			<div class="form-group">
 				<label for="comment">{{ template[0].title }} </label>
@@ -22,13 +27,18 @@
 	<h2>Votre demande n'a malheureusement pas pu aboutir. Veuillez réessayer à nouveau.</h2>
 </div>
 <div [hidden]="!mailEdit">
-	<div class="container" *ngIf="template">
+	<div class="container formulaire" *ngIf="template">
 		<form (ngSubmit)="onEdit(fe)" #fe="ngForm">
 			<h1>Mood Of The Month</h1>
 			<div class="form-group">
 				<label for="noteEdit">Votre précédente note était : {{ template[0].msgNote }}</label>
 				<small class="form-text text-muted" *ngIf="mailEdit">{{ mailEdit.note }}</small>
-				<input required type="text" class="form-control" id="noteEdit" name="noteEdit" ngModel />
+				<div class="input-group">
+					<input required type="text" class="form-control" id="noteEdit" name="noteEdit" ngModel />
+					<div class="input-group-append">
+						<span class="input-group-text">/ 5</span>
+					</div>
+				</div>
 			</div>
 			<div class="form-group">
 				<label for="commentEdit">Votre précédent commentaire était : {{ template[0].title }} </label>

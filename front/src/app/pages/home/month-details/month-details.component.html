@@ -1,5 +1,4 @@
 <div class="container" *ngIf="month">
-
 	<div class="container head">
 		<div>
 			{{ month }}
@@ -8,7 +7,6 @@
 			{{ result }}%
 		</div>
 	</div>
-
 	<div *ngIf="!noteNumber" class="msg">Vous n'avez pas de retours pour ce mois-ci.</div>
 	<div class="test">
 		<div class="progress" *ngIf="notes.length > 0">

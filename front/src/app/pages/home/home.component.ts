@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
   }
   
   onSelect(month: string, id: number): void {
