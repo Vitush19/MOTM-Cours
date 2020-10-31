@@ -3,7 +3,7 @@ import {User} from '../../models/user.model';
 import {UserService} from '../../services/user.service';
 import {Router} from '@angular/router';
 import { DatePipe } from '@angular/common';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
 
 
 @Component({
@@ -12,9 +12,6 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./list-users.component.css']
 })
 export class ListUsersComponent implements OnInit {
-
-
-    faCoffee = faCoffee;
   users: User[];
   data = [];
 
