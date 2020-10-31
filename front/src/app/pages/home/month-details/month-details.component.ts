@@ -13,9 +13,11 @@ export class MonthDetailsComponent implements OnChanges {
   @Input() commentsMonth: string[];
   comments: string[];
   notes: number[];
+  firstResult: number;
   rawResult: number;
   result: number;
-
+  message = ["Vos utilisateurs ne sont pas vraiment heureux ce mois-ci.", "Vos utilisateurs sont plutot mécontent en ce moment.", "Vos utilisateurs sont partagés et ne savent pas trop où ils en sont.", "Vos utilisateurs sont plutôt heureux sur ce mois-ci.", "Vos utilisateurs sont particulièrement heureux en ce moment."]
+  noteNumber: number;
   public barChartOptions: ChartOptions = {
     responsive: true,
   };
@@ -70,15 +72,19 @@ export class MonthDetailsComponent implements OnChanges {
     }
 
     if(this.notes !== undefined && this.notes.length > 0){
-      this.rawResult = this.notes.reduce((p,d) => p+d, )/this.notes.length;
-      let nb = (this.rawResult*100)/5 //result in %
+      this.firstResult = this.notes.reduce((p,d) => p+d, )/this.notes.length;
+      this.noteNumber = this.notes.length;
+      this.rawResult = Math.round(this.firstResult);
+      let nb = (this.firstResult*100)/5 //result in %
       let arrondi = nb*100;
       arrondi = Math.round(arrondi);
       this.result = arrondi/100;
     }
     else {
-      this.rawResult = undefined;
-      this.result = undefined;
+      this.firstResult = null;
+      this.result = null;
+      this.noteNumber = null;
+      this.rawResult = null;
     }
     this.comments = m.previousValue;
   }
