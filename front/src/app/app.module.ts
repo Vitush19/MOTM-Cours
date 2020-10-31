@@ -14,6 +14,8 @@ import { MailTemplateComponent } from './mail-template/mail-template.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { DatePipe } from '@angular/common';
 import { ChartsModule } from 'ng2-charts';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { ChartsModule } from 'ng2-charts';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    Ng2SmartTableModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
