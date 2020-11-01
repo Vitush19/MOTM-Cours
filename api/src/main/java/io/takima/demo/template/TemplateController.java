@@ -19,7 +19,9 @@ public class TemplateController {
         Iterable<Template> it = this.templateDAO.findAll();
         List<Template> templates = new ArrayList<>();
         it.forEach(templates::add);
-
+        if(templates.isEmpty()){
+            return null;
+        }
         return templates;
     }
 

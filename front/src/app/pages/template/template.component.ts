@@ -13,6 +13,7 @@ export class TemplateComponent implements OnInit {
 
   template: Template[];
   submitted = false;
+  templateEdit: Template[];
 
   constructor(private templateService: TemplatesService, private router: Router) { }
 
@@ -27,6 +28,25 @@ export class TemplateComponent implements OnInit {
       title: ngForm.form.value.title
     });
 
+    this.templateService.addTemplate(template)
+      .subscribe();
+
+    this.submitted = true;
+    
+    // const currentRoute = this.router.url;
+    // this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+    //   this.router.navigate([currentRoute]);
+    // });
+    
+  }
+
+  onEdit(ngForm: NgForm) {
+    const template = defaultsDeep({
+      id: 1,
+      msgNote: ngForm.form.value.msgNoteEdit,
+      title: ngForm.form.value.titleEdit
+    });
+
     this.templateService.updateTemplate(template)
       .subscribe();
 
@@ -35,7 +55,7 @@ export class TemplateComponent implements OnInit {
       this.router.navigate([currentRoute]);
     });
 
-    this.submitted = true;
+    //this.submitted = true;
   }
 
 }

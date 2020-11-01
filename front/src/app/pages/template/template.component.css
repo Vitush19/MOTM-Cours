@@ -2,3 +2,9 @@
 	margin-top: 30vh;
 	transform: translateY(-30%);
 }
+
+.pop {
+	position: fixed;
+    bottom: 0;
+    right: 0;
+}
