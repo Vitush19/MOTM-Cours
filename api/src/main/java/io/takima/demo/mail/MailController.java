@@ -3,7 +3,13 @@ import io.takima.demo.entites.User;
 import io.takima.demo.entites.UserDAO;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.bind.annotation.*;
+import org.supercsv.io.CsvBeanWriter;
+import org.supercsv.io.ICsvBeanWriter;
+import org.supercsv.prefs.CsvPreference;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -61,6 +67,29 @@ public class MailController {
             return mailUser;
         }
         return null;
+    }
+
+    @GetMapping("/export")
+    public void exportToCSV(HttpServletResponse response) throws IOException {
+        response.setContentType("text/csv");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=motm_" + currentDateTime + ".csv";
+        response.setHeader(headerKey, headerValue);
+
+        ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
+        String[] csvHeader = {"User ID", "Note", "Commentaire", "Date de saisie", "E-mail"};
+        String[] nameMapping = {"id", "note", "comment", "date", "mail"};
+
+        csvWriter.writeHeader(csvHeader);
+
+        for (Mail mail : this.mailDAO.findAll()) {
+            csvWriter.write(mail, nameMapping);
+        }
+
+        csvWriter.close();
     }
 
     @PostMapping()

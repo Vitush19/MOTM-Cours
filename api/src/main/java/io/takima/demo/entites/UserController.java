@@ -24,7 +24,6 @@ public class UserController {
     @Autowired
     public UserController(UserDAO userDAO) {
         this.userDAO=userDAO;
-
     }
 
     @GetMapping()
@@ -72,7 +71,6 @@ public class UserController {
         }
 
         csvWriter.close();
-
     }
 
     @PutMapping()

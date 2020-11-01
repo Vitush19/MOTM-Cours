@@ -17,6 +17,7 @@ import { ChartsModule } from 'ng2-charts';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DeleteUserComponent } from './pages/delete-user/delete-user.component';
+import { MotmComponent } from './pages/motm/motm.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { DeleteUserComponent } from './pages/delete-user/delete-user.component';
     MonthDetailsComponent,
     MailTemplateComponent,
     EditUserComponent,
-    DeleteUserComponent
+    DeleteUserComponent,
+    MotmComponent
   ],
   entryComponents:[
     AddUserComponent,
