@@ -15,6 +15,8 @@ import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { DatePipe } from '@angular/common';
 import { ChartsModule } from 'ng2-charts';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { DeleteUserComponent } from './pages/delete-user/delete-user.component';
 
 
 @NgModule({
@@ -26,7 +28,13 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     TemplateComponent,
     MonthDetailsComponent,
     MailTemplateComponent,
-    EditUserComponent
+    EditUserComponent,
+    DeleteUserComponent
+  ],
+  entryComponents:[
+    AddUserComponent,
+    EditUserComponent,
+    DeleteUserComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +42,8 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     HttpClientModule,
     FormsModule,
     ChartsModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    NgbModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

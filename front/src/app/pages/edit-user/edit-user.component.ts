@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { NgForm} from '@angular/forms';
 import {UserService} from '../../services/user.service';
 import { defaultsDeep } from 'lodash';
-import {ActivatedRoute, Router} from '@angular/router';
+import { Router} from '@angular/router';
 import {User} from '../../models/user.model';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-edit-user',
@@ -11,14 +13,20 @@ import {User} from '../../models/user.model';
   styleUrls: ['./edit-user.component.css']
 })
 export class EditUserComponent implements OnInit {
+  
+  @Input() formData;
+  
+
   user: User[];
+  user1: User;
   private ids: number;
-  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private userService: UserService, private router: Router, 
+    public activeModal: NgbActiveModal) {}
 
 
   ngOnInit(){
-      const id = this.route.snapshot.params.id;
-      this.ids = id
+      const id = this.formData.id;
+      this.ids = id;   
   }
 
   onSubmit(ngForm: NgForm) {
@@ -32,7 +40,7 @@ export class EditUserComponent implements OnInit {
         });
         user.id = this.ids;
         this.userService.editUser(user).subscribe(u => console.log(u));
-        this.router.navigateByUrl('/user');
+        this.activeModal.close('success');
     }
   }
 }

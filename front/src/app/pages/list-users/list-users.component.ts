@@ -3,7 +3,10 @@ import {User} from '../../models/user.model';
 import {UserService} from '../../services/user.service';
 import {Router} from '@angular/router';
 import { DatePipe } from '@angular/common';
-
+import { NgbModal,NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import {AddUserComponent} from '../add-user/add-user.component';
+import {EditUserComponent} from '../edit-user/edit-user.component';
+import {DeleteUserComponent} from '../delete-user/delete-user.component';
 
 
 @Component({
@@ -14,6 +17,8 @@ import { DatePipe } from '@angular/common';
 export class ListUsersComponent implements OnInit {
   users: User[];
   data = [];
+  formData;
+  modalRef: NgbModalRef;
 
     settings = {
         selectMode: 'single',
@@ -80,15 +85,51 @@ export class ListUsersComponent implements OnInit {
 
 
 
-  constructor(private userService: UserService, private router: Router,private datePipe: DatePipe) { }
+  constructor(private userService: UserService, private router: Router,
+    private datePipe: DatePipe,private modalService: NgbModal) { }
 
   ngOnInit() {
+    this.getData();
+  }
+
+  public getData(){
     this.userService.getUsers().subscribe(users => this.data = users);
   }
 
-  deleteUser(id: number) {
-    this.userService.deleteUser(id).subscribe(succes => {
-      this.users = this.users.filter(user => user.id !== id)
-    });
+  public openModal() {
+    this.modalRef = this.modalService.open(AddUserComponent);
+    this.modalRef.componentInstance.title = 'Add a User';
+    this.modalRef.result.then((result) => {
+      if(result === 'success'){
+        this.getData();
+        this.openModal();
+      }
+      
+    })
   }
+
+  public onEdit(event: any): void{
+    this.modalRef = this.modalService.open(EditUserComponent);
+    this.modalRef.componentInstance.formData = event.data;
+    this.modalRef.componentInstance.title = 'Update a User';
+    this.modalRef.result.then((result) => {
+      if(result === 'success'){
+        this.getData();
+      }    
+    })
+  }
+
+  public onDelete(event: any): void {
+    
+    this.modalRef = this.modalService.open(DeleteUserComponent);
+    this.modalRef.componentInstance.formData = event.data;
+    this.modalRef.componentInstance.title = 'Delete a User';
+    this.modalRef.result.then((result) => {
+      if(result === 'success'){
+        this.getData();
+      }    
+    })
+  }
+
+  
 }

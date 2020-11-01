@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import {NgForm,FormBuilder, FormGroup} from '@angular/forms';
 import {UserService} from '../../services/user.service';
 import { defaultsDeep } from 'lodash';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {Router} from '@angular/router';
 
 @Component({
@@ -11,9 +12,12 @@ import {Router} from '@angular/router';
 })
 export class AddUserComponent implements OnInit {
 
-  constructor(private userService: UserService, private router: Router) { }
+  @Input() title;
+
+  constructor(private userService: UserService, private router: Router, public activeModal: NgbActiveModal) { }
 
   ngOnInit(){
+   
   }
 
   onSubmit(ngForm: NgForm) {
@@ -26,8 +30,7 @@ export class AddUserComponent implements OnInit {
         mail: ngForm.form.value.mail,
       });
       this.userService.addUser(user).subscribe(user => console.log(user));
-
-      this.router.navigateByUrl('/user');
+      this.activeModal.close('success');
     }
 
   }
