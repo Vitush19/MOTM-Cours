@@ -2,12 +2,20 @@
 <div class="container bloc">
 	<div class="left">
 		<ul class="nav justify-content-center">
-			<li class="nav-item" *ngFor="let month of months; let i = index" (click)="onSelect(month, i)">
+			<li
+				class="nav-item"
+				*ngFor="let month of months; let i = index"
+				(click)="onSelect(month, i)"
+			>
 				<a class="nav-link pointer">{{ month }}</a>
 			</li>
 		</ul>
 	</div>
 	<div class="right">
-		<app-month-details [month]="currentMonth" [notesMonth]="notes" [commentsMonth]="comments"></app-month-details>
+		<app-month-details
+			[month]="currentMonth"
+			[notesMonth]="notes"
+			[commentsMonth]="comments"
+		></app-month-details>
 	</div>
 </div>

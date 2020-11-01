@@ -8,14 +8,14 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+
 
   test: boolean;
-  
-  constructor(private router: Router){
+
+  constructor(private router: Router) {
     this.router.events
       .pipe(filter(event => event instanceof RoutesRecognized))
-      .pipe(map((event:RoutesRecognized) => event.state.root.firstChild.data['navbar']))
+      .pipe(map((event: RoutesRecognized) => event.state.root.firstChild.data['navbar']))
       .subscribe(navbar => this.test = navbar);
   }
 

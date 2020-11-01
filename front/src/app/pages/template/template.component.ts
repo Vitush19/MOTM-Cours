@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Template } from '../../models/template.model';
 import { TemplatesService } from '../../services/templates.service';
 import { defaultsDeep } from 'lodash';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
@@ -21,16 +21,21 @@ export class TemplateComponent implements OnInit {
   }
 
   onSubmit(ngForm: NgForm) {
-      let temp = defaultsDeep({
-        id: 1,
-        msgNote: ngForm.form.value.msgNote,
-        title: ngForm.form.value.title
-      });
-  
-      this.templateService.updateTemplate(temp)
-        .subscribe();
-        
-      this.submitted = true;
+    const template = defaultsDeep({
+      id: 1,
+      msgNote: ngForm.form.value.msgNote,
+      title: ngForm.form.value.title
+    });
+
+    this.templateService.updateTemplate(template)
+      .subscribe();
+
+    const currentRoute = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentRoute]);
+    });
+
+    this.submitted = true;
   }
-  
+
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import {UserService} from '../../services/user.service';
+import { UserService } from '../../services/user.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -10,21 +10,18 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class DeleteUserComponent implements OnInit {
 
-
   @Input() formData;
-  id=0;
-  
-  constructor(private userService: UserService,router: Router, public activeModal: NgbActiveModal) { }
+  id = 0;
+
+  constructor(private userService: UserService, router: Router, public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
   }
 
-  public onDelete():void{
+  public onDelete(): void {
     this.id = Number(this.formData.id);
     this.userService.deleteUser(this.id).subscribe(succes => {
       this.activeModal.close('success');
-    });    
-    
+    });
   }
-
 }

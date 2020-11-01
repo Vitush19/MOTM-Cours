@@ -1,4 +1,3 @@
-import { DatePipe } from '@angular/common';
 import { defaultsDeep } from 'lodash';
 
 export class Mail {

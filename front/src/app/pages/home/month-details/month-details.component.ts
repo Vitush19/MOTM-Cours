@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 @Component({
@@ -7,7 +7,7 @@ import { Label } from 'ng2-charts';
   styleUrls: ['./month-details.component.css']
 })
 export class MonthDetailsComponent implements OnChanges {
-  
+
   @Input() month: string;
   @Input() notesMonth: number[];
   @Input() commentsMonth: string[];
@@ -31,21 +31,21 @@ export class MonthDetailsComponent implements OnChanges {
   ];
 
 
-  constructor() {}
+  constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
     const m = changes['commentsMonth'];
     const r = changes['notesMonth'];
     this.notes = r.previousValue;
     let stock = [];
-    let a=0;
-    let b=0;
-    let c=0;
-    let d=0;
-    let e=0;
-    if(this.notes !== undefined){
-      for(let i = 0; i < this.notes.length; i++){
-        switch(this.notes[i]){
+    let a = 0;
+    let b = 0;
+    let c = 0;
+    let d = 0;
+    let e = 0;
+    if (this.notes !== undefined) {
+      for (let i = 0; i < this.notes.length; i++) {
+        switch (this.notes[i]) {
           case 1:
             a++;
             break;
@@ -71,14 +71,14 @@ export class MonthDetailsComponent implements OnChanges {
       ];
     }
 
-    if(this.notes !== undefined && this.notes.length > 0){
-      this.firstResult = this.notes.reduce((p,d) => p+d, )/this.notes.length;
+    if (this.notes !== undefined && this.notes.length > 0) {
+      this.firstResult = this.notes.reduce((p, d) => p + d,) / this.notes.length;
       this.noteNumber = this.notes.length;
       this.rawResult = Math.round(this.firstResult);
-      let nb = (this.firstResult*100)/5 //result in %
-      let arrondi = nb*100;
+      const nb = (this.firstResult * 100) / 5 //result in %
+      let arrondi = nb * 100;
       arrondi = Math.round(arrondi);
-      this.result = arrondi/100;
+      this.result = arrondi / 100;
     }
     else {
       this.firstResult = null;

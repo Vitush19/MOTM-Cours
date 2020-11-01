@@ -1,44 +1,41 @@
-
-
-div{
-  text-align: center;
+div {
+	text-align: center;
 }
 
 .dashboard {
-  font-weight: bold;
-  font-size: 40px;
-  height: 3em;
-  line-height: 3em;
-  background-color: #253746;
-  color: #f7f6f3;
+	font-weight: bold;
+	font-size: 40px;
+	height: 3em;
+	line-height: 3em;
+	background-color: #253746;
+	color: #f7f6f3;
 }
 
-.pointer{
-  cursor: pointer;
+.pointer {
+	cursor: pointer;
 }
 
 .contain {
-  display: flex;
+	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: center;
 	align-items: center;
 	align-content: stretch;
-} 
+}
 
-.middle{
-  margin: 200px;
-  font-weight: bold;
-  font-size: 30px;
+.middle {
+	margin: 200px;
+	font-weight: bold;
+	font-size: 30px;
 }
 
 .btn-default {
-  color: white;
-  background-color: blue;
-
+	color: white;
+	background-color: blue;
 }
 
 .btn-change {
-  color: Red;
-  background-color: white;
+	color: Red;
+	background-color: white;
 }

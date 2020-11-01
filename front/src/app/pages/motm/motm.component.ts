@@ -19,52 +19,52 @@ export class MotmComponent implements OnInit {
     selectMode: 'single',
     hideHeader: false,
     hideSubHeader: false,
-    mode:'external',
+    mode: 'external',
     actions: {
-        columnTitle: 'Actions',
-        add: false,
-        edit: false,
-        delete: false,
-        custom: [],
-        position: 'right'
+      columnTitle: 'Actions',
+      add: false,
+      edit: false,
+      delete: false,
+      custom: [],
+      position: 'right'
     },
     noDataMessage: 'No data found',
     columns: {
-        note: {
-            title: 'Note',
-            type: 'int',
-            filter: true,
-            editable: true
-        },
-        comment: {
-            title: 'Commentaire',
-            type: 'string',
-            filter: true,
-            editable: true
-        },
-        date: {
-            title: 'Date d\'envoi',
-            type: 'date',
-            filter: true,
-            editable: true,
-            valuePrepareFunction: (date) => {
-                const raw = new Date(date);
-                const formatted = this.datePipe.transform(raw, 'yyyy MMM dd');
-                return formatted;
-            }
-        },
-        mail: {
-            title: 'E-mail',
-            type: 'string',
-            filter: true,
-            editable: true
+      note: {
+        title: 'Note',
+        type: 'int',
+        filter: true,
+        editable: true
+      },
+      comment: {
+        title: 'Commentaire',
+        type: 'string',
+        filter: true,
+        editable: true
+      },
+      date: {
+        title: 'Date d\'envoi',
+        type: 'date',
+        filter: true,
+        editable: true,
+        valuePrepareFunction: (date) => {
+          const raw = new Date(date);
+          const formatted = this.datePipe.transform(raw, 'yyyy MMM dd');
+          return formatted;
         }
+      },
+      mail: {
+        title: 'E-mail',
+        type: 'string',
+        filter: true,
+        editable: true
+      }
     },
     pager: {
-        display: true,
-        perPage: 10
+      display: true,
+      perPage: 10
     }
-};
+  };
 
   constructor(private mailService: MailService, private router: Router,
     private datePipe: DatePipe) { }
@@ -73,7 +73,7 @@ export class MotmComponent implements OnInit {
     this.getData();
   }
 
-  public getData(){
+  public getData() {
     this.mailService.getMail().subscribe(mails => this.data = mails);
   }
 

@@ -83,7 +83,7 @@ public class sendMailController {
     }
 
     @Async
-    @Scheduled(cron = "0 44 00 28 * ?", zone = "Europe/Paris")
+    @Scheduled(cron = "0 00 00 04 * ?", zone = "Europe/Paris")
     public void sendToUser(){
 
         String str = "Votre MOTM pour ce mois";
@@ -95,8 +95,7 @@ public class sendMailController {
     }
 
     @Async
-    //@Scheduled(cron = "0 0 0 ? * SUN *", zone = "Europe/Paris")
-    @Scheduled(cron = "0 07 00 30 * ?", zone = "Europe/Paris")
+    @Scheduled(cron = "0 00 00 11 * ?", zone = "Europe/Paris")
     public void sendRemindersToUser(){
 
         JavaMailSenderImpl mailSender = getJavaMailSender();
@@ -113,7 +112,7 @@ public class sendMailController {
     }
 
     @Async
-    @Scheduled(cron = "0 17 23 29 * ?", zone = "Europe/Paris")
+    @Scheduled(cron = "0 00 12 15 * ?", zone = "Europe/Paris")
     public void sendMonthlyUpdate(){
 
         Iterable<Mail> it = this.mailDAO.findAll();

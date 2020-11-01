@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {NgForm,FormBuilder, FormGroup} from '@angular/forms';
-import {UserService} from '../../services/user.service';
+import { NgForm } from '@angular/forms';
+import { UserService } from '../../services/user.service';
 import { defaultsDeep } from 'lodash';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-user',
@@ -16,12 +16,10 @@ export class AddUserComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router, public activeModal: NgbActiveModal) { }
 
-  ngOnInit(){
-   
-  }
+  ngOnInit() { }
 
   onSubmit(ngForm: NgForm) {
-    if(ngForm.valid){
+    if (ngForm.valid) {
       const user = defaultsDeep({
         id: null,
         firstName: ngForm.form.value.firstName,
@@ -30,8 +28,11 @@ export class AddUserComponent implements OnInit {
         mail: ngForm.form.value.mail,
       });
       this.userService.addUser(user).subscribe(user => console.log(user));
+      const currentRoute =this.router.url;
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate([currentRoute]);
+      });
       this.activeModal.close('success');
     }
-
   }
 }

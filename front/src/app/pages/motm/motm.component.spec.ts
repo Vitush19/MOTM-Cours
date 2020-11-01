@@ -8,9 +8,9 @@ describe('MotmComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MotmComponent ]
+      declarations: [MotmComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

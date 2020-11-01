@@ -1,7 +1,5 @@
 package io.takima.demo.entites
 
-import com.fasterxml.jackson.annotation.JsonManagedReference
-import io.takima.demo.mail.Mail
 import java.util.*
 import javax.persistence.*
 

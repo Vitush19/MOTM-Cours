@@ -18,6 +18,3 @@ data class Mail(
 {
     constructor() : this(null, null, null, null, null)
 }
-//        @ManyToOne(optional = false, fetch = FetchType.LAZY)
-//        @JoinColumn(name = "user")
-//        var user: User
