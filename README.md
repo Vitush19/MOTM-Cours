@@ -1,4 +1,4 @@
-# MOTM-Cours
+# MOOD OF THE MONTH
 
 Cette application permet de collecter les humeurs mensuelles des employés.
 
