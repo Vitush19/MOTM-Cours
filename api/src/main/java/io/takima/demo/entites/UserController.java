@@ -2,7 +2,14 @@ package io.takima.demo.entites;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.supercsv.io.CsvBeanWriter;
+import org.supercsv.io.ICsvBeanWriter;
+import org.supercsv.prefs.CsvPreference;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.*;
 import java.util.Optional;
@@ -41,6 +48,30 @@ public class UserController {
         Optional<User> selectedUser = this.userDAO.findById(id);
 
         return selectedUser.orElse(null);
+
+    }
+
+    @GetMapping("/export")
+    public void exportToCSV(HttpServletResponse response) throws IOException {
+        response.setContentType("text/csv");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=users_" + currentDateTime + ".csv";
+        response.setHeader(headerKey, headerValue);
+
+        ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
+        String[] csvHeader = {"User ID", "Prénom", "Nom", "Date de naissance", "E-mail"};
+        String[] nameMapping = {"id", "firstName", "lastName", "age", "mail"};
+
+        csvWriter.writeHeader(csvHeader);
+
+        for (User user : this.userDAO.findAll()) {
+            csvWriter.write(user, nameMapping);
+        }
+
+        csvWriter.close();
 
     }
 

@@ -1,23 +1,33 @@
 <div class="modal-header">
-	<h4 class="modal-title " id="modal-basic-title"><i class="fa fa-address-book"></i> {{title}}</h4>
-	<button type="button" class="close" aria-label="Close" (click)="activeModal.close('Cross click')">
+	<h4 class="modal-title" id="modal-basic-title">
+		<i class="fa fa-address-book"></i> {{ title }}
+	</h4>
+	<button
+		type="button"
+		class="close"
+		aria-label="Close"
+		(click)="activeModal.close('Cross click')"
+	>
 		<span aria-hidden="true">&times;</span>
 	</button>
-  
-  </div>
-  
-  <div class="modal-body">
-    <p> Voulez-vous vraiment supprimer cet utilisateur? </p>
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <button class="btn btn-danger btn-block" (click)="activeModal.close('Cross click')">Cancel</button>
-            </div>
-                          
-            <div class="col-lg-6 col-md-6 col-sm-6" >
-            <button class="btn btn-success btn-block" (click)='onDelete()'>Delete</button>  
-            </div>
+</div>
 
-        </div>
-  </div>
-  
-  
+<div class="modal-body">
+	<p>Voulez-vous vraiment supprimer cet utilisateur?</p>
+	<div class="row">
+		<div class="col-lg-6 col-md-6 col-sm-6">
+			<button
+				class="btn btn-danger btn-block"
+				(click)="activeModal.close('Cross click')"
+			>
+				Cancel
+			</button>
+		</div>
+
+		<div class="col-lg-6 col-md-6 col-sm-6">
+			<button class="btn btn-success btn-block" (click)="onDelete()">
+				Delete
+			</button>
+		</div>
+	</div>
+</div>

@@ -1,19 +1,14 @@
 <div class="container">
-  <div class="content-header" >
-  <a class="btn btn-primary createButton" (click)="openModal()"> Create</a>
-<!--    <button type="button" class="btn btn-primary addButton" >Create</button>-->
-<!--  </a>-->
+  <div class="content-header space" >
+    <a class="btn btn-primary createButton" (click)="openModal()"> Create</a>
+    <a class="btn btn-primary createButton" href="http://localhost:8080/users/export"> Exporter au format CSV</a>
   </div>
-
-        <ng2-smart-table  class="table table-hover"
-                          [settings]="settings"
-                          [source]="data"
-                          (edit)="onEdit($event)"
-                          (delete)="onDelete($event)">
-
-        </ng2-smart-table>
-
-<!-- à finir: édition et suppression -->
+    <ng2-smart-table  class="table table-hover"
+                      [settings]="settings"
+                      [source]="data"
+                      (edit)="onEdit($event)"
+                      (delete)="onDelete($event)">
+    </ng2-smart-table>
 </div>
 
 

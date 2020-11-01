@@ -1,14 +1,16 @@
-
-.createButton{
-    margin-top: 10px;
-    margin-bottom: 10px;
+.createButton {
+	margin: 10px 0px;
 }
-.deleteButton{
-    margin-left: 10px;
+.deleteButton {
+	margin-left: 10px;
 }
 .editButton {
-    margin-left: 10px;
-    background-color: green;
-    color: white;
+	margin-left: 10px;
+	background-color: green;
+	color: white;
+}
 
+.space {
+	display: flex;
+	justify-content: space-between;
 }
