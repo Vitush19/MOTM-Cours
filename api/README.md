@@ -10,6 +10,6 @@ docker run --name mariadb --rm -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_DATABASE=def
 
 3. Si vous n'avez pas Docker, et que vous avez un serveur MariaDB custom, vérifiez bien que vos utilisateurs / mdp sont les bons par rapport au fichier de configuration (src/main/resources/application.properties), et exécutez les scripts présents dans le dossier `initdb`
 
-4. Tous les scripts sql contenus dans le dossier initdb seront exécutés automatiquement lors du premier chargement de la DB.
-
-5. Lancez l'application via IntelliJ, et vérifiez qu'elle fonctionne sur http://localhost:8080 (par défaut)
+4. Dans IntelliJ, ajouter une base de données Mariadb avec le nom `defaultdb`, nom d'utilisateur `root` et mot de passe `toor`. Noter que les utilisateurs Windows ont l'hôte `192.168.99.100`
+5. Exécuter les fichiers sql contenu dans le dossier `initdb` sur la base de données créée précedemment 
+6. Lancez l'application via IntelliJ, et vérifiez qu'elle fonctionne sur http://localhost:8080 (par défaut)
